@@ -1,3 +1,5 @@
+// ignore_for_file: prefer_const_constructors
+
 import 'package:flutter/material.dart';
 
 class DesktopNavBar extends StatelessWidget {
@@ -23,7 +25,7 @@ class DesktopNavBar extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
           Icon(Icons.ac_unit_sharp),
-          Container(
+          SizedBox(
             width: size.width * 0.45,
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceAround,
