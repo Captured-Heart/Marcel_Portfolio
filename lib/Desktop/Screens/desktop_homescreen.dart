@@ -31,7 +31,8 @@ class _DesktopHomePageState extends State<DesktopHomePage> {
     _scrollController.addListener(() {
       setState(() {
         pixels = _scrollController.position.pixels;
-        // print(pixels);
+        // ignore: avoid_print
+        print(_scrollController.position.pixels);
       });
     });
   }
@@ -61,7 +62,7 @@ class _DesktopHomePageState extends State<DesktopHomePage> {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               //!LEFT DIV CONTAINING MY PROFILE
-              LeftDivProfile(size: size),
+              LeftDivProfile(size: size, opacity: pixels ==0 ? 0.3 : 1,),
 
               //! THE MIDDLE DIV DOWN TO THE END OF THE WEBSITE
               Expanded(
@@ -74,7 +75,10 @@ class _DesktopHomePageState extends State<DesktopHomePage> {
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
-                        IstCenterDivDesktop(size: size, loremp: loremp),
+                        IstCenterDivDesktop(
+                          size: size,
+                          loremp: loremp,
+                        ),
                         CenterTitleWidget(size: size),
                         SizedBox(
                           height: size.height * 0.47,
@@ -82,9 +86,11 @@ class _DesktopHomePageState extends State<DesktopHomePage> {
                             opacity: pixels >= 100 ? 1.0 : 0.3,
                             duration: Duration(milliseconds: 500),
                             child: AnimatedPadding(
-                              duration: Duration(milliseconds: 500),
+                              duration: Duration(milliseconds: 1000),
                               padding: EdgeInsets.only(
-                                  left: pixels >= 100 ? 0.0 : 500),
+                                  left: pixels >= 100 && pixels <= 1000
+                                      ? 0.0
+                                      : 500),
                               child: GridView.count(
                                 physics: NeverScrollableScrollPhysics(),
                                 crossAxisCount: 3,
@@ -104,15 +110,35 @@ class _DesktopHomePageState extends State<DesktopHomePage> {
                           ),
                         ),
                         CenterTitleWidget(size: size),
-                        EducationDiv(size: size),
+                        EducationDiv(
+                          size: size,
+                          // offset: pixels >= 700 ? Offset(0, 0) : Offset
+                          //(5, -10),
+                          scale: pixels >= 800 ? 1 : 0.5,
+                        ),
                         CenterTitleWidget(size: size),
-                        EducationDiv(size: size),
+                        EducationDiv(
+                          size: size,
+                          // offset:
+                          //     pixels >= 1500 ? Offset(0, 0) : Offset(5, -10),
+                          scale: pixels >= 1900 ? 1.0 : 0.6,
+                        ),
                         SizedBox(
                           height: size.height * 0.73,
                           width: size.width,
                           child: Row(children: [
-                            ContactUsInfoLeft(size: size),
-                            ContactUsInfoRight(size: size)
+                            ContactUsInfoLeft(
+                              size: size,
+                              scale: pixels >= 2800 ? 1.0 : 0.3,
+                            ),
+                            ContactUsInfoRight(
+                              size: size,
+                              opacity: pixels >= 2800 ? 1.0 : 0.3,
+                              left: pixels >= 2800 ? 0.0 : 1500,
+                              turns: pixels >= 2800 ? 0.0 : 60,
+                              offset:
+                                  pixels >= 2800 ? Offset(0, 0) : Offset(5, 10),
+                            )
                           ]),
                         ),
                         Container(

@@ -11,21 +11,17 @@ class SocialButtons extends StatelessWidget {
   final IconData icons;
   @override
   Widget build(BuildContext context) {
-    return ShakeAnimatedWidget(
-      shakeAngle: Rotation.deg(z: 40),
-      curve: Curves.linear,
-      child: Container(
-        // height: size.height * 0.1,
-        // width: size.width * 0.1,
-        alignment: Alignment.center,
-        padding: EdgeInsets.all(10),
-        decoration: BoxDecoration(
-          color: Colors.orange[400],
-          shape: BoxShape.circle,
-        ),
-        child: Icon(
-          icons,
-        ),
+    return Container(
+      // height: size.height * 0.1,
+      // width: size.width * 0.1,
+      alignment: Alignment.center,
+      padding: EdgeInsets.all(10),
+      decoration: BoxDecoration(
+        color: Colors.orange[400],
+        shape: BoxShape.circle,
+      ),
+      child: Icon(
+        icons,
       ),
     );
   }

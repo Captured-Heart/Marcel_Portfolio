@@ -42,7 +42,7 @@ class IstCenterDivDesktop extends StatelessWidget {
                   children: [
                     Text(
                       '''I'm Nkpozi Marcel Kelechi 
-    Full Stack Developer''',
+Full Stack Developer''',
                       style: TextStyle(
                         fontSize: 28,
                       ),
@@ -102,7 +102,7 @@ class IstCenterDivDesktop extends StatelessWidget {
                   // width: size.width * 0.4,
                   // height: size.height * 0.5,
                   child: Image.asset(
-                    'assets/images/myDp.png',
+                    'assets/images/myDp1.png',
                     fit: BoxFit.fitHeight,
 
                     // scale: 0.008,

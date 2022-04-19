@@ -7,36 +7,38 @@ import 'package:flutter_neumorphic/flutter_neumorphic.dart';
 class EducationDiv extends StatelessWidget {
   const EducationDiv({
     Key? key,
-    required this.size,
+    required this.size,  this.offset, required this.scale,
   }) : super(key: key);
 
   final Size size;
+  final Offset ? offset;
+  final double scale;
 
   @override
   Widget build(BuildContext context) {
-    return Neumorphic(
-         style: NeumorphicStyle(
-        shape: NeumorphicShape.concave,
-        // boxShape: NeumorphicBoxShape.roundRect(BorderRadius.circular(12)),
-        depth: 12,
-        // intensity: 0.8,
-        // surfaceIntensity: 0.9,
-        lightSource: LightSource.bottom,
-        // color: Colors.grey,
-      ),
+    return AnimatedScale(
+      duration: Duration(milliseconds: 1500),
+      scale: scale,
       child: Container(
         width: size.width,
         color: Colors.white,
         margin: EdgeInsets.symmetric(horizontal: 10),
         child: Column(
           children: [
-            EducationOptions(size: size),
-            SizedBox(
-                width: size.width * 0.62, child: Divider()),
-            EducationOptions(size: size),
-            SizedBox(
-                width: size.width * 0.62, child: Divider()),
-            EducationOptions(size: size),
+            EducationOptions(
+              size: size,
+              // offset: offset!,
+            ),
+            SizedBox(width: size.width * 0.62, child: Divider()),
+            EducationOptions(
+              size: size,
+              // offset: offset!,
+            ),
+            SizedBox(width: size.width * 0.62, child: Divider()),
+            EducationOptions(
+              size: size,
+              // offset: offset!,
+            ),
           ],
         ),
       ),
@@ -48,9 +50,11 @@ class EducationOptions extends StatelessWidget {
   const EducationOptions({
     Key? key,
     required this.size,
+    //  this.offset,
   }) : super(key: key);
 
   final Size size;
+  // final Offset ? offset;
 
   @override
   Widget build(BuildContext context) {

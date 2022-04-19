@@ -13,11 +13,11 @@ import '../Widgets/LeftDiv/left_div_skill.dart';
 class LeftDivProfile extends StatelessWidget {
   const LeftDivProfile({
     Key? key,
-    required this.size,
+    required this.size, required this.opacity,
   }) : super(key: key);
 
   final Size size;
-
+final double opacity;
   @override
   Widget build(BuildContext context) {
     return Expanded(
@@ -52,17 +52,21 @@ class LeftDivProfile extends StatelessWidget {
                     ),
                     Text('Nkpozi Marcel Kelechi'),
                     Text('Full Stack Developer'),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                      children: const [
-                        SocialButtons(icons: FontAwesomeIcons.facebookF),
-                        SocialButtons(
-                            icons: FontAwesomeIcons.facebookMessenger),
-                        SocialButtons(icons: FontAwesomeIcons.twitter),
-                        SocialButtons(icons: FontAwesomeIcons.youtube),
-                        SocialButtons(icons: FontAwesomeIcons.instagramSquare),
-                        SocialButtons(icons: FontAwesomeIcons.github),
-                      ],
+                    AnimatedOpacity(
+                      duration: Duration(milliseconds: 1500),
+                      opacity: opacity,
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                        children: const [
+                          SocialButtons(icons: FontAwesomeIcons.facebookF),
+                          SocialButtons(
+                              icons: FontAwesomeIcons.facebookMessenger),
+                          SocialButtons(icons: FontAwesomeIcons.twitter),
+                          SocialButtons(icons: FontAwesomeIcons.youtube),
+                          SocialButtons(icons: FontAwesomeIcons.instagramSquare),
+                          SocialButtons(icons: FontAwesomeIcons.github),
+                        ],
+                      ),
                     ),
                     Divider(),
                     LeftDivDetails(size: size),
