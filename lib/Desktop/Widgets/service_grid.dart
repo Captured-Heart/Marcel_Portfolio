@@ -15,13 +15,13 @@ class MyServicesGrid extends StatelessWidget {
         shape: NeumorphicShape.concave,
         // boxShape: NeumorphicBoxShape.roundRect(BorderRadius.circular(12)),
         depth: 12,
-        // intensity: 0.8,
-        // surfaceIntensity: 0.9,
+        intensity: 0.4,
+        surfaceIntensity: 0.1,
         lightSource: LightSource.bottom,
         // color: Colors.grey,
       ),
       child: Container(
-        
+        height: MediaQuery.of(context).size.height * 0.4,
         color: Colors.white,
         child:
             Column(mainAxisAlignment: MainAxisAlignment.spaceEvenly, children: [

@@ -15,13 +15,14 @@ class SocialButtons extends StatelessWidget {
       // height: size.height * 0.1,
       // width: size.width * 0.1,
       alignment: Alignment.center,
-      padding: EdgeInsets.all(10),
+      padding: EdgeInsets.all(8),
       decoration: BoxDecoration(
         color: Colors.orange[400],
         shape: BoxShape.circle,
       ),
       child: Icon(
         icons,
+        size: 20,
       ),
     );
   }

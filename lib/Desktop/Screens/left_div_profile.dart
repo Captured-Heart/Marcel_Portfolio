@@ -13,11 +13,10 @@ import '../Widgets/LeftDiv/left_div_skill.dart';
 class LeftDivProfile extends StatelessWidget {
   const LeftDivProfile({
     Key? key,
-    required this.size, required this.opacity,
+    required this.size,
   }) : super(key: key);
 
   final Size size;
-final double opacity;
   @override
   Widget build(BuildContext context) {
     return Expanded(
@@ -26,80 +25,77 @@ final double opacity;
         isAlwaysShown: false,
         thickness: 1,
         child: Neumorphic(
+          margin: EdgeInsets.only(bottom: 10),
           style: NeumorphicStyle(
               shape: NeumorphicShape.concave,
-              // boxShape: NeumorphicBoxShape.roundRect(BorderRadius.circular(12)),
+              boxShape: NeumorphicBoxShape.roundRect(
+                BorderRadius.only(
+                  bottomRight: Radius.circular(10),
+                ),
+              ),
               depth: 10,
-              intensity: 0.8,
+              intensity: 0.3,
               surfaceIntensity: 0.1,
               lightSource: LightSource.topLeft,
               color: Colors.grey),
-          child: SingleChildScrollView(
-            primary: false,
-            child: Container(
-              height: size.height * 1.5,
-              padding: EdgeInsets.symmetric(horizontal: 40, vertical: 50),
-              color: Colors.white,
-              child: Column(
-                  mainAxisAlignment: MainAxisAlignment.spaceAround,
-                  children: [
-                    CircleAvatar(
-                      backgroundColor: Color(0xffE5E5E5),
-                      radius: size.width * 0.05,
-                      backgroundImage: AssetImage(
-                        'assets/images/myDp.png',
-                      ),
+          child: Container(
+            height: size.height,
+            padding: EdgeInsets.symmetric(horizontal: 40, vertical: 30),
+            color: Colors.white,
+            child: Column(
+                mainAxisAlignment: MainAxisAlignment.spaceAround,
+                children: [
+                  CircleAvatar(
+                    backgroundColor: Color(0xffE5E5E5),
+                    radius: size.width * 0.05,
+                    backgroundImage: AssetImage(
+                      'assets/images/myDp.png',
                     ),
-                    Text('Nkpozi Marcel Kelechi'),
-                    Text('Full Stack Developer'),
-                    AnimatedOpacity(
-                      duration: Duration(milliseconds: 1500),
-                      opacity: opacity,
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                        children: const [
-                          SocialButtons(icons: FontAwesomeIcons.facebookF),
-                          SocialButtons(
-                              icons: FontAwesomeIcons.facebookMessenger),
-                          SocialButtons(icons: FontAwesomeIcons.twitter),
-                          SocialButtons(icons: FontAwesomeIcons.youtube),
-                          SocialButtons(icons: FontAwesomeIcons.instagramSquare),
-                          SocialButtons(icons: FontAwesomeIcons.github),
-                        ],
-                      ),
+                  ),
+                  Text('Nkpozi Marcel Kelechi'),
+                  Text('Full Stack Developer'),
+                  SizedBox(
+                    width: size.width * 0.85,
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                      children: const [
+                        SocialButtons(icons: FontAwesomeIcons.facebookF),
+                        SocialButtons(icons: FontAwesomeIcons.twitter),
+                        SocialButtons(icons: FontAwesomeIcons.github),
+                      ],
                     ),
-                    Divider(),
-                    LeftDivDetails(size: size),
-                    Divider(),
-                    LeftDivLanguages(size: size),
-                    Divider(),
-                    LeftDivSkills(size: size),
-                    Divider(),
-                    LeftDivExtraSkills(
-                      size: size,
-                      text: 'BootStrap, Material Fonts',
+                  ),
+                  // Divider(),
+                  // LeftDivDetails(size: size),
+                  // Divider(),
+                  // LeftDivLanguages(size: size),
+                  Divider(),
+                  LeftDivSkills(size: size),
+                  Divider(),
+                  LeftDivExtraSkills(
+                    size: size,
+                    text: 'BootStrap, Material Fonts',
+                  ),
+                  Divider(),
+                  Container(
+                    height: size.height * 0.05,
+                    width: size.width * 0.8,
+                    decoration: BoxDecoration(
+                      color: Colors.orange[400],
                     ),
-                    Divider(),
-                    Container(
-                      height: size.height * 0.05,
-                      width: size.width * 0.8,
-                      decoration: BoxDecoration(
-                        color: Colors.orange[400],
-                      ),
-                      child: Row(mainAxisAlignment: MainAxisAlignment.center,
-                          // ignore: prefer_const_literals_to_create_immutables
-                          children: [
-                            Text(
-                              'DOWNLOAD CV',
-                              style: TextStyle(
-                                  fontWeight: FontWeight.bold, fontSize: 20),
-                            ),
-                            SizedBox(width: 7),
-                            Icon(Icons.file_download_outlined)
-                          ]),
-                    ),
-                  ]),
-            ),
+                    child: Row(mainAxisAlignment: MainAxisAlignment.center,
+                        // ignore: prefer_const_literals_to_create_immutables
+                        children: [
+                          Text(
+                            'DOWNLOAD CV',
+                            style: TextStyle(
+                                fontWeight: FontWeight.bold, fontSize: 20),
+                          ),
+                          SizedBox(width: 7),
+                          Icon(Icons.file_download_outlined)
+                        ]),
+                  ),
+                ]),
           ),
         ),
       ),

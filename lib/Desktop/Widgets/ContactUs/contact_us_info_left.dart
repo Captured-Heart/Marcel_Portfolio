@@ -5,7 +5,8 @@ import 'package:flutter/material.dart';
 class ContactUsInfoLeft extends StatelessWidget {
   const ContactUsInfoLeft({
     Key? key,
-    required this.size, required this.scale,
+    required this.size,
+    required this.scale,
   }) : super(key: key);
 
   final Size size;
@@ -15,62 +16,62 @@ class ContactUsInfoLeft extends StatelessWidget {
   Widget build(BuildContext context) {
     return Expanded(
       flex: 6,
-      child: SizedBox(
-        height: size.height,
-        child: AnimatedScale(
-          duration: Duration(milliseconds: 1200),
-          scale: scale,
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              Text(
-                'Leave Us Your Info',
-                style: TextStyle(
-                  fontSize: 27,
-                  fontWeight: FontWeight.w800,
-                ),
-              ),
-              Container(
+      child: AnimatedScale(
+        duration: Duration(milliseconds: 1200),
+        scale: scale,
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            Container(
+              decoration: BoxDecoration(
                 color: Colors.white,
-                height: size.height * 0.65,
-                margin: EdgeInsets.only(right: 30),
-                padding: EdgeInsets.symmetric(
-                  horizontal: 30,
-                  vertical: 30,
-                ),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    TextFieldOptions(title: 'Your Full Name (Required)'),
-                    TextFieldOptions(title: 'Your Email  (Required)'),
-                    TextFieldOptions(title: 'Subject'),
-                    TextFieldOptions(title: 'Your Message', maxlines: 4),
-                    Padding(
-                      padding: const EdgeInsets.all(15.0),
-                      child: Container(
-                        height: size.height * 0.05,
-                        alignment: Alignment.center,
-                        width: size.width * 0.12,
-                        padding: EdgeInsets.all(10),
-                        decoration: BoxDecoration(
-                          color: Colors.orange[400],
-                        ),
-                        child: Text(
-                          'SEND MESSAGE',
-                          textAlign: TextAlign.center,
-                          style: TextStyle(
-                            fontWeight: FontWeight.w500,
-                            fontSize: 20,
-                          ),
+                borderRadius: BorderRadius.all(Radius.circular(10)),
+              ),
+              padding: EdgeInsets.symmetric(
+                horizontal: 30,
+                vertical: 30,
+              ),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  TextFieldOptions(title: 'Your Full Name (Required)'),
+                  Row(
+                    children: [
+                      Expanded(
+                          child: TextFieldOptions(
+                              title: 'Your Email  (Required)')),
+                      SizedBox(
+                        width: size.width * 0.2,
+                        child: TextFieldOptions(title: 'Phone Number'),
+                      ),
+                    ],
+                  ),
+                  TextFieldOptions(title: 'Your Message', maxlines: 3),
+                  Padding(
+                    padding: const EdgeInsets.all(15.0),
+                    child: Container(
+                      height: size.height * 0.05,
+                      alignment: Alignment.center,
+                      width: size.width * 0.12,
+                      padding: EdgeInsets.all(10),
+                      decoration: BoxDecoration(
+                        color: Colors.orange[400],
+                      ),
+                      child: Text(
+                        'SEND MESSAGE',
+                        textAlign: TextAlign.center,
+                        style: TextStyle(
+                          fontWeight: FontWeight.w600,
+                          fontSize: 20,
                         ),
                       ),
                     ),
-                  ],
-                ),
-              )
-            ],
-          ),
+                  ),
+                ],
+              ),
+            )
+          ],
         ),
       ),
     );

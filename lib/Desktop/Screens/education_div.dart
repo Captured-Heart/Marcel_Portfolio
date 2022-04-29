@@ -7,11 +7,13 @@ import 'package:flutter_neumorphic/flutter_neumorphic.dart';
 class EducationDiv extends StatelessWidget {
   const EducationDiv({
     Key? key,
-    required this.size,  this.offset, required this.scale,
+    required this.size,
+    this.offset,
+    required this.scale,
   }) : super(key: key);
 
   final Size size;
-  final Offset ? offset;
+  final Offset? offset;
   final double scale;
 
   @override
@@ -21,7 +23,8 @@ class EducationDiv extends StatelessWidget {
       scale: scale,
       child: Container(
         width: size.width,
-        color: Colors.white,
+        decoration: BoxDecoration(
+            color: Colors.white, borderRadius: BorderRadius.circular(10)),
         margin: EdgeInsets.symmetric(horizontal: 10),
         child: Column(
           children: [

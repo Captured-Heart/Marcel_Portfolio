@@ -38,16 +38,7 @@ class LeftDivExtraSkills extends StatelessWidget {
               Text(text)
             ],
           ),
-          Row(
-            children: [
-              Icon(
-                Icons.headphones,
-                color: Colors.orange[400],
-              ),
-              SizedBox(width: 15),
-              Text(text)
-            ],
-          ),
+        
           Row(
             children: [
               Icon(

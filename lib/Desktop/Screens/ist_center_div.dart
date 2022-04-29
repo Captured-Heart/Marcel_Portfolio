@@ -18,9 +18,14 @@ class IstCenterDivDesktop extends StatelessWidget {
     return Neumorphic(
       style: NeumorphicStyle(
         shape: NeumorphicShape.concave,
-        // boxShape: NeumorphicBoxShape.roundRect(BorderRadius.circular(12)),
+        boxShape: NeumorphicBoxShape.roundRect(
+          BorderRadius.only(
+            bottomLeft: Radius.circular(10),
+            bottomRight: Radius.circular(10),
+          ),
+        ),
         depth: 10,
-        intensity: 0.8,
+        intensity: 0.4,
         surfaceIntensity: 0.1,
         lightSource: LightSource.topLeft,
         color: Colors.grey,

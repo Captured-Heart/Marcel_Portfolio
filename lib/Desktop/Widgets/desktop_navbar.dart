@@ -16,11 +16,13 @@ class DesktopNavBar extends StatelessWidget {
       height: size.height * 0.08,
       padding: EdgeInsets.symmetric(horizontal: size.width * 0.06),
       decoration: BoxDecoration(
-          border: Border(
-              bottom: BorderSide(
-        color: Colors.grey,
-        width: 1.4,
-      ))),
+        color: Colors.white,
+        border: Border(
+            bottom: BorderSide(
+          color: Colors.grey,
+          width: 1.4,
+        )),
+      ),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
