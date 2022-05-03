@@ -2,13 +2,16 @@
 
 import 'package:flutter/material.dart';
 import 'package:my_portfolio/Desktop/Widgets/LeftDiv/social_buttons.dart';
+import 'package:my_portfolio/responsive.dart';
 
 class ContactUsInfoRight extends StatelessWidget {
   const ContactUsInfoRight({
     Key? key,
     required this.size,
     // required this.offset,
-    required this.padding, required this.alignment, required this.crossAxisAlignment,
+    required this.padding,
+    required this.alignment,
+    required this.crossAxisAlignment,
   }) : super(key: key);
 
   final Size size;
@@ -30,11 +33,24 @@ class ContactUsInfoRight extends StatelessWidget {
             AnimatedPadding(
               padding: padding,
               duration: Duration(milliseconds: 1200),
-              child: ContactInfoDetails(
-                size: size,
-                text: 'Roar Hub, University of Nigeria, Nsukka',
-                text2: '',
-                icon: Icons.location_on_sharp,
+              child: Row(
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  CircleAvatar(
+                    radius: size.width * 0.019,
+                    backgroundColor: Colors.orange[500],
+                    child: Icon(
+                      Icons.location_on_sharp,
+                      size: size.width * 0.025,
+                      color: Colors.black,
+                    ),
+                  ),
+                  SizedBox(width: 15),
+                  Text(
+                    'Roar Hub, University of Nigeria, Nsukka',
+                    style: textStyle(context),
+                  )
+                ],
               ),
             ),
             SizedBox(height: size.height * 0.045),
@@ -66,9 +82,9 @@ class ContactUsInfoRight extends StatelessWidget {
   }
 }
 
-TextStyle textStyle() {
+TextStyle textStyle(context) {
   return TextStyle(
-    fontSize: 18,
+    fontSize: Responsive.isMobile(context) ? 16 : 18,
     fontWeight: FontWeight.bold,
   );
 }
@@ -105,12 +121,12 @@ class ContactInfoDetails extends StatelessWidget {
           children: [
             Text(
               text,
-              style: textStyle(),
+              style: textStyle(context),
             ),
             SizedBox(height: 6),
             Text(
               text2,
-              style: textStyle(),
+              style: textStyle(context),
             ),
           ],
         )

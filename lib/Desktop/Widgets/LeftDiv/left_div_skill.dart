@@ -54,7 +54,7 @@ class LeftDivSkills extends StatelessWidget {
           LeftDivLanguagesComponents(
             leading: 'WordPress',
             trailing: '50%',
-            value: 0.55,
+            value: 0.50,
           ),
         ],
       ),

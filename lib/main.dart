@@ -2,6 +2,8 @@
 
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+import 'package:my_portfolio/Mobile/mobile_screen.dart';
+import 'package:my_portfolio/responsive.dart';
 
 import 'Desktop/Screens/desktop_homescreen.dart';
 import 'config/config.dart';
@@ -9,6 +11,8 @@ import 'config/config.dart';
 final config = Configurations();
 
 void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+
   await Firebase.initializeApp(
     options: FirebaseOptions(
       apiKey: config.apiKey,
@@ -32,7 +36,10 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.brown,
       ),
-      home: const DesktopHomePage(),
+      home: Responsive(
+        desktop: DesktopHomePage(),
+        mobile: MobileScreen(),
+      ),
     );
   }
 }

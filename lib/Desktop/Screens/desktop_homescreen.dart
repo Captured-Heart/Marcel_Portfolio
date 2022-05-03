@@ -50,16 +50,15 @@ class _DesktopHomePageState extends State<DesktopHomePage> {
 
         // ignore: avoid_print
         print(_scrollController.position.pixels);
-        print(activeStep);
       });
     });
   }
 
-  // @override
-  // void dispose() {
-  //   super.dispose();
-  //   _scrollController.dispose();
-  // }
+  @override
+  void dispose() {
+    super.dispose();
+    _scrollController.dispose();
+  }
 
   void scrollTo(double index) {
     _scrollController.animateTo(scrollPexels[index.toInt()],
@@ -77,29 +76,48 @@ class _DesktopHomePageState extends State<DesktopHomePage> {
   static double offsetAbout = 1700;
   static double offsetContact = 2970;
 
+
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
     return Scaffold(
       backgroundColor: Color(0xffE5E5E5),
-      // appBar: PreferredSize(
-      //   preferredSize: size,
-      //   child: DesktopNavBar(size: size),
-      // ),
+      appBar: PreferredSize(
+        preferredSize: size,
+        child: DesktopNavBar(
+          size: size,
+          onTapHome: () {
+            scrollTo(0);
+          },
+          onTapPortfolio: () {
+            scrollTo(1);
+          },
+          onTapAbout: () {
+            scrollTo(2);
+          },
+          onTopContact: () {
+            scrollTo(3);
+          },
+        ),
+      ),
       body: SizedBox(
         child: Row(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             //!LEFT DIV CONTAINING MY PROFILE
-            LeftDivProfile(
-              size: size,
+            Expanded(
+              flex: 3,
+              child: LeftDivProfile(
+                size: size,
+              ),
             ),
 
             //! THE MIDDLE DIV DOWN TO THE END OF THE WEBSITE
             Expanded(
               flex: 10,
               child: SingleChildScrollView(
-                physics: ClampingScrollPhysics(parent: FixedExtentScrollPhysics()),
+                physics:
+                    ClampingScrollPhysics(parent: FixedExtentScrollPhysics()),
                 controller: _scrollController,
                 child: Container(
                   // height: size.height,
@@ -109,7 +127,7 @@ class _DesktopHomePageState extends State<DesktopHomePage> {
                     children: [
                       IstCenterDivDesktop(
                         size: size,
-                        loremp: lorem(paragraphs: 1, words: 25),
+                        loremp: 'I’m a flutter developer with front end development skills. I developed the passion and enduring enthusiasm for technology especially programming during my course of formal education. I am passionate about leveraging my diverse backgrounds to decipher challenging problems and create delightful experiences. ',
                       ),
                       SizedBox(height: size.height * 0.1),
                       CenterTitleWidget(
@@ -232,6 +250,9 @@ I build web applications with modern technologies which include node.js, react.j
                     direction: Axis.vertical,
                     enableNextPreviousButtons: false,
                     activeStep: activeStep,
+                    stepPadding: 10,
+                    activeStepBorderWidth: 5,
+                    activeStepBorderColor: Colors.grey[400],
                     onStepReached: (index1) {
                       setState(() {
                         scrollTo(index1.toDouble());
