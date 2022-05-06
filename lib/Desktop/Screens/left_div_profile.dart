@@ -1,16 +1,13 @@
 // ignore_for_file: prefer_const_constructors
 
-import 'package:flutter/material.dart';
+import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter_neumorphic/flutter_neumorphic.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:my_portfolio/Desktop/Widgets/LeftDiv/left_div_extras.dart';
 import 'package:my_portfolio/Desktop/Widgets/LeftDiv/social_buttons.dart';
-import 'package:my_portfolio/dialogs.dart';
-import 'package:my_portfolio/responsive.dart';
-import 'package:url_launcher/url_launcher.dart';
+import 'package:my_portfolio/Utils/responsive.dart';
+import 'package:my_portfolio/Utils/url_launcher.dart';
 
-import '../Widgets/LeftDiv/left_div_details.dart';
-import '../Widgets/LeftDiv/left_div_language.dart';
 import '../Widgets/LeftDiv/left_div_skill.dart';
 
 class LeftDivProfile extends StatelessWidget {
@@ -20,23 +17,12 @@ class LeftDivProfile extends StatelessWidget {
   }) : super(key: key);
 
   final Size size;
-  final Dialogs dialogs = Dialogs();
+  final UrlLauncher urlLauncher = UrlLauncher();
 
   @override
   Widget build(BuildContext context) {
-    Future<void> launchSocialMediaUrls({required Uri url}) async {
-      await canLaunchUrl(url)
-          ? launchUrl(url)
-          : dialogs.successDialog(
-              contentText:
-                  "There is no Social Media Page Yet or account currently unavailable",
-              titleText: 'Error',
-              context: context,
-            );
-    }
-
     return Neumorphic(
-      margin: EdgeInsets.only(bottom: 10),
+      margin: EdgeInsets.only(bottom: Responsive.isMobile(context) ? 2 : 5),
       style: NeumorphicStyle(
           shape: NeumorphicShape.concave,
           boxShape: NeumorphicBoxShape.roundRect(
@@ -53,82 +39,112 @@ class LeftDivProfile extends StatelessWidget {
         height: size.height,
         padding: EdgeInsets.symmetric(
           horizontal: Responsive.isMobile(context) ? 20 : 40,
-          vertical: Responsive.isMobile(context) ? 15 : 30,
+          vertical: Responsive.isMobile(context) ? 15 : 20,
         ),
         color: Colors.white,
-        child:
-            Column(mainAxisAlignment: MainAxisAlignment.spaceAround, children: [
-          CircleAvatar(
-            backgroundColor: Color(0xffE5E5E5),
-            radius: Responsive.isMobile(context)
-                ? size.width * 0.15
-                : size.width * 0.05,
-            backgroundImage: AssetImage(
-              'assets/images/myDp.png',
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.spaceAround,
+          children: [
+            CircleAvatar(
+              backgroundColor: Color(0xffE5E5E5),
+              radius: Responsive.isMobile(context)
+                  ? size.width * 0.15
+                  : size.width * 0.045,
+              backgroundImage: AssetImage(
+                'assets/images/myDp.png',
+              ),
             ),
-          ),
-          Text('Nkpozi Marcel Kelechi'),
-          Text('Full Stack Developer'),
-          SizedBox(
-            width: size.width * 0.85,
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              children: [
-                SocialButtons(
-                  icons: FontAwesomeIcons.facebookF,
-                  onTap: () {
-                    launchSocialMediaUrls(
-                        url: Uri.parse(
-                            'https://web.facebook.com/NkpoziMarcelKelechi/'));
-                  },
-                ),
-                SocialButtons(
-                  icons: FontAwesomeIcons.twitter,
-                  onTap: () {
-                    launchSocialMediaUrls(
-                        url: Uri.parse('https://twitter.com/CapturedWarrior'));
-                  },
-                ),
-                SocialButtons(
-                  icons: FontAwesomeIcons.github,
-                  onTap: () {
-                    launchSocialMediaUrls(
-                        url: Uri.parse('https://github.com/Captured-Heart'));
-                  },
-                ),
-              ],
+            SizedBox(height: 5),
+            AutoSizeText(
+              'Nkpozi Marcel Kelechi',
+              maxLines: 1,
+              style: TextStyle(fontWeight: FontWeight.w600, fontSize: 22),
             ),
-          ),
-          // Divider(),
-          // LeftDivDetails(size: size),
-          // Divider(),
-          // LeftDivLanguages(size: size),
-          Divider(),
-          LeftDivSkills(size: size),
-          Divider(),
-          LeftDivExtraSkills(
-            size: size,
-            text: 'BootStrap, Material Fonts',
-          ),
-          Divider(),
-          Container(
-            height: size.height * 0.05,
-            width: size.width * 0.8,
-            decoration: BoxDecoration(
-              color: Colors.orange[400],
+            SizedBox(height: 5),
+            Text(
+              'Full Stack Flutter Developer',
+              style: TextStyle(
+                decoration: TextDecoration.underline,
+              ),
             ),
-            child: Row(mainAxisAlignment: MainAxisAlignment.center,
-                // ignore: prefer_const_literals_to_create_immutables
+            SizedBox(height: 10),
+            SizedBox(
+              width: size.width * 0.85,
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
-                  Text(
-                    'DOWNLOAD CV',
-                    style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
+                  SocialButtons(
+                    icons: FontAwesomeIcons.facebookF,
+                    onTap: () {
+                      urlLauncher.launchSocialMediaUrls(context,
+                          url: Uri.parse(
+                              'https://web.facebook.com/NkpoziMarcelKelechi/'));
+                    },
                   ),
-                  SizedBox(width: 7),
-                  Icon(Icons.file_download_outlined)
-                ]),
-          ),
-        ]),
+                  SocialButtons(
+                    icons: FontAwesomeIcons.twitter,
+                    onTap: () {
+                      urlLauncher.launchSocialMediaUrls(context,
+                          url:
+                              Uri.parse('https://twitter.com/CapturedWarrior'));
+                    },
+                  ),
+                  SocialButtons(
+                    icons: FontAwesomeIcons.github,
+                    onTap: () {
+                      urlLauncher.launchSocialMediaUrls(context,
+                          url: Uri.parse('https://github.com/Captured-Heart'));
+                    },
+                  ),
+                ],
+              ),
+            ),
+            Divider(),
+            Expanded(child: LeftDivSkills(size: size)),
+            Divider(),
+            Expanded(
+              child: LeftDivExtraSkills(
+                size: size,
+              ),
+            ),
+            Divider(),
+            InkWell(
+              onTap: () {
+         urlLauncher.       launchSocialMediaUrls(context,
+                  url: Uri.parse(
+                    'https://firebasestorage.googleapis.com/v0/b/nkpozi-marcel-42a08.appspot.com/o/Kelechi_Marcel_Nkpozi_Resume.pdf?alt=media&token=c39f7a7a-fdcc-4ac8-b91b-efd0a46bb0ac',
+                  ),
+                );
+              },
+              child: Container(
+                // height: Responsive.isMobile(context)
+                //     ? size.height * 0.065
+                //     : size.height * 0.05,
+                // width: size.width * 0.8,
+                margin: EdgeInsets.symmetric(horizontal: size.width * 0.008),
+                padding: EdgeInsets.symmetric(horizontal: 15, vertical: 12),
+                decoration: BoxDecoration(
+                  color: Colors.orange[400],
+                ),
+                child: Row(mainAxisAlignment: MainAxisAlignment.center,
+                    // ignore: prefer_const_literals_to_create_immutables
+                    children: [
+                      Expanded(
+                        child: AutoSizeText(
+                          'DOWNLOAD CV',
+                          style: TextStyle(
+                              fontWeight: FontWeight.bold, fontSize: 20),
+                              maxLines: 1,
+                              textAlign: TextAlign.center,
+                        ),
+                      ),
+                      // SizedBox(width: 7),
+                      Icon(Icons.file_download_outlined)
+                    ]),
+              ),
+            ),
+          ],
+        ),
       ),
     );
   }

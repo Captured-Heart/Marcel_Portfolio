@@ -1,9 +1,11 @@
 // ignore_for_file: prefer_const_constructors
 
+import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
+import 'package:my_portfolio/Utils/url_launcher.dart';
 
 class ContactUsInfoLeft extends StatelessWidget {
-  const ContactUsInfoLeft({
+  ContactUsInfoLeft({
     Key? key,
     required this.size,
     required this.scale,
@@ -11,7 +13,11 @@ class ContactUsInfoLeft extends StatelessWidget {
 
   final Size size;
   final double scale;
-
+  final TextEditingController nameController = TextEditingController();
+  final TextEditingController emailController = TextEditingController();
+  final TextEditingController titleController = TextEditingController();
+  final TextEditingController messageController = TextEditingController();
+ final UrlLauncher urlLauncher = UrlLauncher();
   @override
   Widget build(BuildContext context) {
     return Expanded(
@@ -35,35 +41,60 @@ class ContactUsInfoLeft extends StatelessWidget {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  TextFieldOptions(title: 'Your Full Name (Required)'),
+                  TextFieldOptions(
+                    title: 'Your Full Name (Required)',
+                    textEditingController: nameController,
+                  ),
                   Row(
                     children: [
                       Expanded(
-                          child: TextFieldOptions(
-                              title: 'Your Email  (Required)')),
+                        child: TextFieldOptions(
+                          title: 'Your Email  (Required)',
+                          textEditingController: emailController,
+                        ),
+                      ),
                       SizedBox(
                         width: size.width * 0.2,
-                        child: TextFieldOptions(title: 'Phone Number'),
+                        child: TextFieldOptions(
+                          title: 'Title of Message',
+                          textEditingController: titleController,
+                        ),
                       ),
                     ],
                   ),
-                  TextFieldOptions(title: 'Your Message', maxlines: 3),
-                  Padding(
-                    padding: const EdgeInsets.all(15.0),
-                    child: Container(
-                      height: size.height * 0.05,
-                      alignment: Alignment.center,
-                      width: size.width * 0.12,
-                      padding: EdgeInsets.all(10),
-                      decoration: BoxDecoration(
-                        color: Colors.orange[400],
-                      ),
-                      child: Text(
-                        'SEND MESSAGE',
-                        textAlign: TextAlign.center,
-                        style: TextStyle(
-                          fontWeight: FontWeight.w600,
-                          fontSize: 20,
+                  TextFieldOptions(
+                    title: 'Your Message',
+                    textEditingController: messageController,
+                    maxlines: 3,
+                  ),
+                  InkWell(
+                    onTap: () {
+                      urlLauncher.launchSocialMediaUrls(
+                        context,
+                        url: Uri.parse(
+                          'mailto:knkpozi@gmail.com?subject=${titleController.text}&body=${messageController.text}%20plugin',
+                        ),
+                      );
+                    },
+                    child: Padding(
+                      padding: const EdgeInsets.all(10.0),
+                      child: Container(
+                        // height: size.height * 0.05,
+                        alignment: Alignment.center,
+                        // width: size.width * 0.12,
+                        margin: EdgeInsets.only(right: size.width * 0.25),
+                        padding: EdgeInsets.all(10),
+                        decoration: BoxDecoration(
+                          color: Colors.orange[400],
+                        ),
+                        child: AutoSizeText(
+                          'SEND MESSAGE',
+                          textAlign: TextAlign.center,
+                          style: TextStyle(
+                            fontWeight: FontWeight.w600,
+                            fontSize: 20,
+                          ),
+                          maxLines: 1,
                         ),
                       ),
                     ),
@@ -83,9 +114,11 @@ class TextFieldOptions extends StatelessWidget {
     Key? key,
     required this.title,
     this.maxlines,
+    this.textEditingController,
   }) : super(key: key);
   final String title;
   final int? maxlines;
+  final TextEditingController? textEditingController;
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -93,18 +126,19 @@ class TextFieldOptions extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Text(
+          AutoSizeText(
             title,
             style: TextStyle(
               fontSize: 17,
             ),
+            maxLines: 1,
           ),
           SizedBox(height: 5),
           TextFormField(
             maxLines: maxlines,
             // minLines: 1,
             // expands: true,
-
+            controller: textEditingController,
             decoration: InputDecoration(
               fillColor: Color(0xffE5E5E5),
               filled: true,

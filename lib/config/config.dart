@@ -24,7 +24,7 @@ class Configurations {
   // apiKey: "AIzaSyBttkpqQObBV7C9deRXT5QLmfMfCmBtWC4",
 //   authDomain: "nkpozi-marcel-42a08.firebaseapp.com",
 //   projectId: "nkpozi-marcel-42a08",
-//   storageBucket: "nkpozi-marcel-42a08.appspot.com",
+//   storageBucket: "nkpozimarcel.appspot.com",
 //   messagingSenderId: "750508295848",
   // appId: "1:750508295848:web:f173a98389f282262ce49d"
 // };

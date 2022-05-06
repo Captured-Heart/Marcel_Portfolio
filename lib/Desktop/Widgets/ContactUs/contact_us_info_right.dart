@@ -1,8 +1,9 @@
 // ignore_for_file: prefer_const_constructors
 
+import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:my_portfolio/Desktop/Widgets/LeftDiv/social_buttons.dart';
-import 'package:my_portfolio/responsive.dart';
+import 'package:my_portfolio/Utils/responsive.dart';
 
 class ContactUsInfoRight extends StatelessWidget {
   const ContactUsInfoRight({
@@ -46,9 +47,11 @@ class ContactUsInfoRight extends StatelessWidget {
                     ),
                   ),
                   SizedBox(width: 15),
-                  Text(
-                    'Roar Hub, University of Nigeria, Nsukka',
-                    style: textStyle(context),
+                  Expanded(
+                    child: AutoSizeText(
+                      'Roar Hub, University of Nigeria, Nsukka',
+                      style: textStyle(context),
+                    ),
                   )
                 ],
               ),
@@ -116,19 +119,21 @@ class ContactInfoDetails extends StatelessWidget {
           ),
         ),
         SizedBox(width: 15),
-        Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Text(
-              text,
-              style: textStyle(context),
-            ),
-            SizedBox(height: 6),
-            Text(
-              text2,
-              style: textStyle(context),
-            ),
-          ],
+        Expanded(
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Text(
+                text,
+                style: textStyle(context),
+              ),
+              SizedBox(height: 6),
+              Text(
+                text2,
+                style: textStyle(context),
+              ),
+            ],
+          ),
         )
       ],
     );

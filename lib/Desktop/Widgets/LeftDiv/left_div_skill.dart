@@ -1,3 +1,5 @@
+// ignore_for_file: prefer_const_constructors
+
 import 'package:flutter/material.dart';
 import 'package:my_portfolio/Desktop/Widgets/LeftDiv/left_div_language.dart';
 
@@ -12,13 +14,12 @@ class LeftDivSkills extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      height: size.height * 0.22,
+      // height: size.height * 0.22,
       width: double.infinity,
       child: Column(
-        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         crossAxisAlignment: CrossAxisAlignment.start,
-        // ignore: prefer_const_literals_to_create_immutables
-        children: const[
+        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+        children: [
           Text(
             'Skills',
             style: TextStyle(
@@ -26,39 +27,44 @@ class LeftDivSkills extends StatelessWidget {
               fontSize: 20,
             ),
           ),
-          LeftDivLanguagesComponents(
-            leading: 'Html',
-            trailing: '80%',
-            value: 0.8,
-          ),
-          LeftDivLanguagesComponents(
-            leading: 'CSS',
-            trailing: '70%',
-            value: 0.7,
-          ),
-          LeftDivLanguagesComponents(
-            leading: 'JS',
-            trailing: '40%',
-            value: 0.4,
-          ),
-          LeftDivLanguagesComponents(
-            leading: 'Flutter',
-            trailing: '85%',
-            value: 0.85,
-          ),
-          LeftDivLanguagesComponents(
-            leading: 'NodeJS',
-            trailing: '15%',
-            value: 0.15,
-          ),
-          LeftDivLanguagesComponents(
-            leading: 'WordPress',
-            trailing: '50%',
-            value: 0.50,
+          // SizedBox(height: 10),
+          Wrap(
+            crossAxisAlignment: WrapCrossAlignment.center,
+            alignment: WrapAlignment.start,
+            spacing: 10,
+            runSpacing: 7,
+            // mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            // crossAxisAlignment: CrossAxisAlignment.start,
+            // ignore: prefer_const_literals_to_create_immutables
+            children: [
+              LeftDivLanguagesComponents(
+                leading: 'Html', size: size,
+               
+              ),
+              LeftDivLanguagesComponents(
+                leading: 'CSS', size: size,
+               
+              ),
+              LeftDivLanguagesComponents(
+                leading: 'JS', size: size,
+              
+              ),
+              LeftDivLanguagesComponents(
+                leading: 'Flutter', size: size,
+               
+              ),
+              LeftDivLanguagesComponents(
+                leading: 'NodeJS', size: size,
+               
+              ),
+              LeftDivLanguagesComponents(
+                leading: 'WordPress', size: size,
+               
+              ),
+            ],
           ),
         ],
       ),
     );
   }
 }
-

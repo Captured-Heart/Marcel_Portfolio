@@ -1,9 +1,12 @@
 // ignore_for_file: prefer_const_constructors
 
+
+import 'package:device_preview/device_preview.dart';
 import 'package:firebase_core/firebase_core.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'package:my_portfolio/Mobile/mobile_screen.dart';
-import 'package:my_portfolio/responsive.dart';
+import 'package:my_portfolio/Mobile/Screens/mobile_screen.dart';
+import 'package:my_portfolio/Utils/responsive.dart';
 
 import 'Desktop/Screens/desktop_homescreen.dart';
 import 'config/config.dart';
@@ -22,7 +25,12 @@ void main() async {
       storageBucket: config.storageBucket,
     ),
   );
-  runApp(const MyApp());
+  runApp(
+    DevicePreview(
+      builder: (context) => const MyApp(),
+      enabled: !kReleaseMode,
+    ),
+  );
 }
 
 class MyApp extends StatelessWidget {
@@ -32,6 +40,8 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
+      locale: DevicePreview.locale(context),
+      builder: DevicePreview.appBuilder,
       title: 'Nkpozi Marcel Kelechi',
       theme: ThemeData(
         primarySwatch: Colors.brown,
@@ -39,6 +49,8 @@ class MyApp extends StatelessWidget {
       home: Responsive(
         desktop: DesktopHomePage(),
         mobile: MobileScreen(),
+        //!recall to construct tablet mode from desktop
+        tablet: DesktopHomePage(),
       ),
     );
   }

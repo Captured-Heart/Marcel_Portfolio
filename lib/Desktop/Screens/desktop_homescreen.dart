@@ -5,14 +5,15 @@ import 'package:flutter_lorem/flutter_lorem.dart';
 import 'package:flutter_neumorphic/flutter_neumorphic.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:im_stepper/stepper.dart';
-import 'package:my_portfolio/Desktop/Screens/education_div.dart';
+import 'package:my_portfolio/Desktop/Widgets/EduDiv/education_div.dart';
 import 'package:my_portfolio/Desktop/Screens/left_div_profile.dart';
 import 'package:my_portfolio/Desktop/Widgets/ContactUs/contact_us_info_right.dart';
 import 'package:my_portfolio/Desktop/Widgets/ContactUs/contact_us_info_left.dart';
 import 'package:my_portfolio/Desktop/Widgets/center_title.dart';
 import 'package:my_portfolio/Desktop/Widgets/desktop_navbar.dart';
-import 'package:my_portfolio/Desktop/Screens/ist_center_div.dart';
-import 'package:my_portfolio/Desktop/Widgets/service_grid.dart';
+import 'package:my_portfolio/Desktop/Widgets/IstDiv/ist_center_div.dart';
+import 'package:my_portfolio/Desktop/Widgets/ServicesGrid/service_grid.dart';
+import 'package:my_portfolio/Utils/responsive.dart';
 import 'package:step_progress_indicator/step_progress_indicator.dart';
 
 class DesktopHomePage extends StatefulWidget {
@@ -73,9 +74,8 @@ class _DesktopHomePageState extends State<DesktopHomePage> {
   ];
   static double offsetHome = 0;
   static double offsetPortfolio = 630;
-  static double offsetAbout = 1700;
-  static double offsetContact = 2970;
-
+  static double offsetAbout = 1800;
+  static double offsetContact = 3000;
 
   @override
   Widget build(BuildContext context) {
@@ -105,12 +105,14 @@ class _DesktopHomePageState extends State<DesktopHomePage> {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             //!LEFT DIV CONTAINING MY PROFILE
-            Expanded(
-              flex: 3,
-              child: LeftDivProfile(
-                size: size,
-              ),
-            ),
+            Responsive.isDesktop(context)
+                ? Expanded(
+                    flex: 3,
+                    child: LeftDivProfile(
+                      size: size,
+                    ),
+                  )
+                : SizedBox(),
 
             //! THE MIDDLE DIV DOWN TO THE END OF THE WEBSITE
             Expanded(
@@ -127,7 +129,8 @@ class _DesktopHomePageState extends State<DesktopHomePage> {
                     children: [
                       IstCenterDivDesktop(
                         size: size,
-                        loremp: 'I’m a flutter developer with front end development skills. I developed the passion and enduring enthusiasm for technology especially programming during my course of formal education. I am passionate about leveraging my diverse backgrounds to decipher challenging problems and create delightful experiences. ',
+                        loremp:
+                            'A flutter developer with front end development skills. I developed the passion and enduring enthusiasm for technology especially programming during my course of formal education. I am passionate about leveraging my diverse backgrounds to decipher challenging problems and create delightful experiences. ',
                       ),
                       SizedBox(height: size.height * 0.1),
                       CenterTitleWidget(
@@ -145,7 +148,7 @@ class _DesktopHomePageState extends State<DesktopHomePage> {
                           child: AnimatedPadding(
                             duration: Duration(milliseconds: 1000),
                             padding: EdgeInsets.only(
-                                left: pixels >= 100 && pixels <= 1670
+                                left: pixels >= 100 && pixels <= 1880
                                     ? 0.0
                                     : 500),
                             child: GridView.count(
@@ -169,18 +172,17 @@ class _DesktopHomePageState extends State<DesktopHomePage> {
                           ),
                         ),
                       ),
-                      SizedBox(height: size.height * 0.08),
+                      SizedBox(height: size.height * 0.06),
                       CenterTitleWidget(
                         size: size * 1.2,
                         title: 'ABOUT',
                         subtitle:
-                            '''I’m a flutter developer with front end development skills. I developed the passion and enduring enthusiasm for technology especially programming during my course of formal education. I am passionate about leveraging my diverse backgrounds to decipher challenging problems and create delightful experiences. 
-
-I build web applications with modern technologies which include node.js, react.js, HTML, CSS, JavaScript and more. Being a diligent, hardworking and result oriented young man, I always work towards achieving best result on each project I lay my hands on.''',
+                            'Detailed insight to my qualifications and credentials',
                         centerTitle: 'Let me introduce myself.',
                       ),
                       EducationDiv(
                         size: size,
+                        // 1155
                         scale: pixels >= 1155 ? 1 : 0.5,
                       ),
                       SizedBox(height: size.height * 0.08),
@@ -198,21 +200,22 @@ I build web applications with modern technologies which include node.js, react.j
                         child: Row(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
+                            ContactUsInfoLeft(
+                              size: size,
+                              scale: pixels >= 2070 ? 1.0 : 0.3,
+                            ),
                             ContactUsInfoRight(
                               size: size,
                               crossAxisAlignment: pixels >= 2300
                                   ? CrossAxisAlignment.end
                                   : CrossAxisAlignment.start,
                               padding: pixels >= 2070
-                                  ? EdgeInsets.only(top: 0)
+                                  ? EdgeInsets.only(
+                                      top: 0, left: size.width * 0.015)
                                   : EdgeInsets.only(top: size.height * 0.1),
                               alignment: pixels >= 2070
                                   ? Alignment.topCenter
                                   : Alignment.bottomCenter,
-                            ),
-                            ContactUsInfoLeft(
-                              size: size,
-                              scale: pixels >= 2070 ? 1.0 : 0.3,
                             ),
                           ],
                         ),
