@@ -5,18 +5,28 @@ import 'package:my_portfolio/Desktop/Widgets/ContactUs/contact_us_info_left.dart
 import 'package:my_portfolio/Desktop/Widgets/ContactUs/contact_us_info_right.dart';
 import 'package:my_portfolio/Utils/url_launcher.dart';
 
-class ContactUsInfoFormMobile extends StatelessWidget {
+import '../../Utils/dialogs.dart';
+import '../../Utils/send_email.dart';
+
+class ContactUsInfoFormMobile extends StatefulWidget {
   ContactUsInfoFormMobile({
     Key? key,
     required this.size,
   }) : super(key: key);
 
   final Size size;
-  final TextEditingController nameController = TextEditingController();
-  final TextEditingController emailController = TextEditingController();
-  final TextEditingController titleController = TextEditingController();
-  final TextEditingController messageController = TextEditingController();
-final UrlLauncher urlLauncher = UrlLauncher();
+
+  @override
+  State<ContactUsInfoFormMobile> createState() =>
+      _ContactUsInfoFormMobileState();
+}
+
+class _ContactUsInfoFormMobileState extends State<ContactUsInfoFormMobile> {
+  final Emails emails = Emails();
+
+  final Dialogs dialogs = Dialogs();
+  bool loading = false;
+  static final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
   @override
   Widget build(BuildContext context) {
     return Neumorphic(
@@ -29,65 +39,104 @@ final UrlLauncher urlLauncher = UrlLauncher();
         lightSource: LightSource.topRight,
         // color: Colors.grey,
       ),
-      child: Container(
-        width: size.width,
-        color: Colors.white,
-        child: Column(children: [
-          Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              TextFieldOptions(
-                title: 'Your Full Name (Required)',
-                textEditingController: nameController,
-              ),
-              TextFieldOptions(
-                title: 'Your Email  (Required)',
-                textEditingController: emailController,
-              ),
-              TextFieldOptions(
-                title: 'Title of Message',
-                textEditingController: titleController,
-              ),
-              TextFieldOptions(
-                title: 'Your Message',
-                maxlines: 3,
-                textEditingController: messageController,
-              ),
-              InkWell(
-                onTap: () {
-                  urlLauncher.launchSocialMediaUrls(
-                    context,
-                    url: Uri.parse(
-                      'mailto:knkpozi@gmail.com?subject=${titleController.text}&body=${messageController.text}%20plugin',
-                    ),
-                  );
-                },
-                child: Padding(
-                  padding: const EdgeInsets.all(15.0),
-                  child: Align(
-                    alignment: Alignment.topRight,
-                    child: Container(
-                      alignment: Alignment.center,
-                      width: size.width * 0.35,
-                      padding: EdgeInsets.all(10),
-                      decoration: BoxDecoration(
-                        color: Colors.orange[400],
-                      ),
-                      child: Text(
-                        'SEND',
-                        textAlign: TextAlign.center,
-                        style: TextStyle(
-                          fontWeight: FontWeight.w600,
-                          fontSize: 20,
+      child: Form(
+        key: _formKey,
+        child: Container(
+          width: widget.size.width,
+          color: Colors.white,
+          child: Column(children: [
+            Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                TextFieldOptions(
+                  title: 'Your Full Name (Required)',
+                  textEditingController: emails.nameController,
+                  validator: (text) {
+                    return text!.isEmpty ? 'The Field can not be empty' : '';
+                  },
+                ),
+                TextFieldOptions(
+                  title: 'Your Email  (Required)',
+                  textEditingController: emails.emailController,
+                  validator: (text) {
+                    if (text!.isEmpty) {
+                      return 'The Field can not be empty';
+                    } else {
+                      return '';
+                    }
+                  },
+                ),
+                TextFieldOptions(
+                  title: 'Title of Message',
+                  textEditingController: emails.titleController,
+                ),
+                TextFieldOptions(
+                  title: 'Your Message',
+                  maxlines: 3,
+                  textEditingController: emails.messageController,
+                ),
+                InkWell(
+                  onTap: () {
+                    setState(() {
+                      loading = true;
+                    });
+                    var form = _formKey.currentState;
+                    if (form!.validate()) {
+                      emails.sendEmail().whenComplete(() {
+                        setState(() {
+                          loading = false;
+                        });
+                        dialogs
+                            .successDialog(
+                          context: context,
+                          titleText: 'SUCCESS',
+                          contentText:
+                              'You have successfully sent an email to Mr Nkpozi Marcel Kelechi',
+                        )
+                            .then((value) {
+                          emails.nameController.clear();
+                          emails.emailController.clear();
+                          emails.titleController.clear();
+                          emails.messageController.clear();
+                        });
+                      });
+                    } else {
+                      setState(() {
+                        loading = false;
+                      });
+                      dialogs.successDialog(
+                          context: context,
+                          titleText: 'ERROR',
+                          contentText: 'Please fill up required fields');
+                    }
+                  },
+                  child: Padding(
+                    padding: const EdgeInsets.all(15.0),
+                    child: Align(
+                      alignment: Alignment.topRight,
+                      child: Container(
+                        alignment: Alignment.center,
+                        width: widget.size.width * 0.35,
+                        padding: EdgeInsets.all(10),
+                        decoration: BoxDecoration(
+                          color: Colors.orange[400],
+                        ),
+                        child: Text(
+                          'SEND',
+                          textAlign: TextAlign.center,
+                          style: TextStyle(
+                            fontWeight: FontWeight.w600,
+                            fontSize: 20,
+                          ),
                         ),
                       ),
                     ),
                   ),
                 ),
-              ),
-            ],
-          ),
-        ]),
+              ],
+            ),
+          ]),
+        ),
       ),
     );
   }
