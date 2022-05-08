@@ -28,13 +28,15 @@ class FooterMobile extends StatelessWidget {
         children: const [
           Text(
             '2022, All Rights Reserved.',
-            style: TextStyle(fontStyle: FontStyle.italic),
+            style: TextStyle(
+              fontStyle: FontStyle.italic,
+              fontWeight: FontWeight.w400,
+            ),
           ),
           Text(
             'UMUNTU NGUMUNTU NGABANTU',
             style: TextStyle(
-                fontWeight: FontWeight.bold,
-                fontStyle: FontStyle.italic),
+                fontWeight: FontWeight.w300, fontStyle: FontStyle.italic),
           ),
         ],
       ),

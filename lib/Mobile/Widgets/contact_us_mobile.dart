@@ -49,22 +49,12 @@ class _ContactUsInfoFormMobileState extends State<ContactUsInfoFormMobile> {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 TextFieldOptions(
-                  title: 'Your Full Name (Required)',
+                  title: 'Your Full Name',
                   textEditingController: emails.nameController,
-                  validator: (text) {
-                    return text!.isEmpty ? 'The Field can not be empty' : '';
-                  },
                 ),
                 TextFieldOptions(
-                  title: 'Your Email  (Required)',
+                  title: 'Your Email',
                   textEditingController: emails.emailController,
-                  validator: (text) {
-                    if (text!.isEmpty) {
-                      return 'The Field can not be empty';
-                    } else {
-                      return '';
-                    }
-                  },
                 ),
                 TextFieldOptions(
                   title: 'Title of Message',
@@ -101,13 +91,13 @@ class _ContactUsInfoFormMobileState extends State<ContactUsInfoFormMobile> {
                         });
                       });
                     } else {
-                      setState(() {
-                        loading = false;
-                      });
-                      dialogs.successDialog(
-                          context: context,
-                          titleText: 'ERROR',
-                          contentText: 'Please fill up required fields');
+                      // setState(() {
+                      //   loading = false;
+                      // });
+                      // dialogs.successDialog(
+                      //     context: context,
+                      //     titleText: 'ERROR',
+                      //     contentText: 'Please fill up required fields');
                     }
                   },
                   child: Padding(
@@ -121,14 +111,16 @@ class _ContactUsInfoFormMobileState extends State<ContactUsInfoFormMobile> {
                         decoration: BoxDecoration(
                           color: Colors.orange[400],
                         ),
-                        child: Text(
-                          'SEND',
-                          textAlign: TextAlign.center,
-                          style: TextStyle(
-                            fontWeight: FontWeight.w600,
-                            fontSize: 20,
-                          ),
-                        ),
+                        child: !loading
+                            ? Text(
+                                'SEND',
+                                textAlign: TextAlign.center,
+                                style: TextStyle(
+                                  fontWeight: FontWeight.w600,
+                                  fontSize: 20,
+                                ),
+                              )
+                            : CircularProgressIndicator(),
                       ),
                     ),
                   ),

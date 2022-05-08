@@ -55,25 +55,15 @@ class _ContactUsInfoLeftState extends State<ContactUsInfoLeft> {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     TextFieldOptions(
-                      title: 'Your Full Name (Required)',
+                      title: 'Your Full Name ',
                       textEditingController: emails.nameController,
-                      validator: (text) {
-                        return text!.length < 2
-                            ? 'The Field can not be empty'
-                            : '';
-                      },
                     ),
                     Row(
                       children: [
                         Expanded(
                           child: TextFieldOptions(
-                            title: 'Your Email  (Required)',
+                            title: 'Your Email  ',
                             textEditingController: emails.emailController,
-                            validator: (text) {
-                              return text!.length < 2
-                                  ? 'The field cannot be empty'
-                                  : '';
-                            },
                           ),
                         ),
                         SizedBox(
@@ -96,6 +86,8 @@ class _ContactUsInfoLeftState extends State<ContactUsInfoLeft> {
                           loading = true;
                         });
                         final form = _formKey.currentState;
+
+                        //! TRY ANOTHER WAY TO VALIDATE(try$catch method)
                         if (form!.validate()) {
                           emails.sendEmail().whenComplete(() {
                             setState(() {
@@ -176,12 +168,12 @@ class TextFieldOptions extends StatelessWidget {
     required this.title,
     this.maxlines,
     this.textEditingController,
-    this.validator,
+    // this.validator,
   }) : super(key: key);
   final String title;
   final int? maxlines;
   final TextEditingController? textEditingController;
-  final String Function(String?)? validator;
+  // String Function(String?)? validator;
 
   @override
   Widget build(BuildContext context) {
@@ -200,7 +192,9 @@ class TextFieldOptions extends StatelessWidget {
           SizedBox(height: 5),
           TextFormField(
             maxLines: maxlines,
-            validator: validator,
+            validator: (text) {
+              return text!.isEmpty ? 'The Field can not be empty' : null;
+            },
             // minLines: 1,
             // expands: true,
             controller: textEditingController,

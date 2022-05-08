@@ -51,7 +51,7 @@ class LeftDivProfile extends StatelessWidget {
                   ? size.width * 0.15
                   : size.width * 0.045,
               backgroundImage: AssetImage(
-                'assets/images/myDp.png',
+                'assets/images/myDp1.png',
               ),
             ),
             SizedBox(height: 5),
@@ -110,7 +110,8 @@ class LeftDivProfile extends StatelessWidget {
             Divider(),
             InkWell(
               onTap: () {
-         urlLauncher.       launchSocialMediaUrls(context,
+                urlLauncher.launchSocialMediaUrls(
+                  context,
                   url: Uri.parse(
                     'https://firebasestorage.googleapis.com/v0/b/nkpozi-marcel-42a08.appspot.com/o/Kelechi_Marcel_Nkpozi_Resume.pdf?alt=media&token=c39f7a7a-fdcc-4ac8-b91b-efd0a46bb0ac',
                   ),
@@ -122,7 +123,7 @@ class LeftDivProfile extends StatelessWidget {
                 //     : size.height * 0.05,
                 // width: size.width * 0.8,
                 margin: EdgeInsets.symmetric(horizontal: size.width * 0.008),
-                padding: EdgeInsets.symmetric(horizontal: 15, vertical: 12),
+                padding: EdgeInsets.symmetric(horizontal: 15, vertical: 9),
                 decoration: BoxDecoration(
                   color: Colors.orange[400],
                 ),
@@ -134,8 +135,8 @@ class LeftDivProfile extends StatelessWidget {
                           'DOWNLOAD CV',
                           style: TextStyle(
                               fontWeight: FontWeight.bold, fontSize: 20),
-                              maxLines: 1,
-                              textAlign: TextAlign.center,
+                          maxLines: 1,
+                          textAlign: TextAlign.center,
                         ),
                       ),
                       // SizedBox(width: 7),

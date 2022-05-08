@@ -2,6 +2,7 @@
 
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter_neumorphic/flutter_neumorphic.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:my_portfolio/Utils/url_launcher.dart';
 
 class IstDivMobile extends StatelessWidget {
@@ -53,7 +54,7 @@ class IstDivMobile extends StatelessWidget {
               AutoSizeText(
                 'Nkpozi Marcel Kelechi',
                 maxLines: 1,
-                style: TextStyle(
+                style: GoogleFonts.oleoScript(
                     fontWeight: FontWeight.bold, fontSize: size.width * 0.07),
               ),
               SizedBox(height: 5),

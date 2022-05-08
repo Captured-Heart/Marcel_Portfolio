@@ -22,17 +22,17 @@ class NavBarMobile extends StatelessWidget {
     return IconStepper(
       direction: Axis.horizontal,
       scrollingDisabled: true,
-      stepRadius: Responsive.isMobile(context) ? 17 : 24,
+      stepRadius: Responsive.isMobile(context) ? 19 : 24,
       enableNextPreviousButtons: false,
       activeStep: activeStep,
-      stepPadding: 1,
+      stepPadding: 3,
       activeStepBorderWidth: 2,
       activeStepBorderColor: Colors.grey[400],
       onStepReached: onStepReached,
       stepReachedAnimationEffect: Curves.linear,
       stepReachedAnimationDuration: Duration(seconds: 2),
       activeStepColor: Colors.orange[400],
-      lineLength: size.width * 0.03,
+      lineLength: size.width * 0.045,
       // ignore: prefer_const_literals_to_create_immutables
       icons: [
         Icon(Icons.menu),

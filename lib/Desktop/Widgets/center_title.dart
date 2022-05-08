@@ -3,6 +3,7 @@
 import 'package:animated_text_kit/animated_text_kit.dart';
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:my_portfolio/Utils/responsive.dart';
 
 class CenterTitleWidget extends StatelessWidget {
@@ -56,14 +57,15 @@ class CenterTitleWidget extends StatelessWidget {
               child: DefaultTextStyle(
                 maxLines: 1,
                 textAlign: TextAlign.center,
-                style: TextStyle(
+                style:GoogleFonts.oleoScript(
                   fontWeight: FontWeight.w900,
-                  fontSize: Responsive.isDesktop(context)? 40 : 33,
-                  foreground: Paint()
-                    ..strokeWidth = 2.8
-                    ..style = PaintingStyle.stroke
-                    ..filterQuality = FilterQuality.low
-                    ..strokeMiterLimit = 20,
+                  fontSize: Responsive.isDesktop(context)? 50 : 33,
+                  letterSpacing: 2.5,
+                  // foreground: Paint()
+                  //   ..strokeWidth = 2.8
+                  //   ..style = PaintingStyle.stroke
+                  //   ..filterQuality = FilterQuality.low
+                  //   ..strokeMiterLimit = 20,
                     
                 ),
                 child: AnimatedTextKit(

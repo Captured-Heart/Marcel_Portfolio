@@ -1,5 +1,9 @@
+// ignore_for_file: prefer_const_constructors
+
+import 'package:animated_text_kit/animated_text_kit.dart';
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class CenterTitleMobile extends StatelessWidget {
   const CenterTitleMobile({
@@ -26,7 +30,7 @@ class CenterTitleMobile extends StatelessWidget {
                 title!,
                 style: TextStyle(
                   fontWeight: FontWeight.w500,
-                  fontSize: 25,
+                  fontSize: 24,
                   color: Colors.orange[400],
                 ),
               ),
@@ -44,18 +48,31 @@ class CenterTitleMobile extends StatelessWidget {
           SizedBox(
             height: 10,
           ),
-          AutoSizeText(
-            centerTitle!,
+          DefaultTextStyle(
             maxLines: 1,
-            style: TextStyle(
+            textAlign: TextAlign.center,
+            style: GoogleFonts.oleoScript(
               fontWeight: FontWeight.w200,
-              fontSize: 28,
-              foreground: Paint()
-                ..strokeWidth = 3.2
-                ..style = PaintingStyle.stroke
-                ..filterQuality = FilterQuality.low
-                ..strokeMiterLimit = 10,
+              fontSize: 26,
+              letterSpacing: 2.5,
             ),
+
+            // TextStyle(
+            //   fontWeight: FontWeight.w200,
+            //   fontSize: 26,
+            //   foreground: Paint()
+            //     ..strokeWidth = 3.2
+            //     ..style = PaintingStyle.stroke
+            //     ..filterQuality = FilterQuality.low
+            //     ..strokeMiterLimit = 10,
+            // ),
+            child: AnimatedTextKit(repeatForever: true, animatedTexts: [
+              TypewriterAnimatedText(
+                centerTitle!,
+                cursor: '',
+                speed: Duration(milliseconds: 45),
+              ),
+            ]),
           ),
           SizedBox(
             height: 10,
@@ -72,4 +89,3 @@ class CenterTitleMobile extends StatelessWidget {
     );
   }
 }
-

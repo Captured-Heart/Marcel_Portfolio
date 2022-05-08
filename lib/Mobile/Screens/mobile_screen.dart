@@ -130,15 +130,15 @@ class _MobileScreenState extends State<MobileScreen> {
                       subtitle:
                           'These are some of the works i have done so far both side projects and works for clients(of course with their permission)',
                     ),
-                    MyServicesGrid(width: size.width),
+                    MyServicesGrid(width: size.width, imgUrl:  'assets/images/nemyAdmin.jpg', ),
                     SizedBox(height: 15),
-                    MyServicesGrid(width: size.width),
+                    MyServicesGrid(width: size.width, imgUrl:  'assets/images/nemyMain.jpg',),
                     SizedBox(height: 15),
-                    MyServicesGrid(width: size.width),
+                    MyServicesGrid(width: size.width, imgUrl:  'assets/images/emerieSUG.jpg',),
                     SizedBox(height: 15),
-                    MyServicesGrid(width: size.width),
-                    SizedBox(height: 15),
-                    MyServicesGrid(width: size.width),
+                    MyServicesGrid(width: size.width, imgUrl:  'assets/images/medical.jpg',),
+                    // SizedBox(height: 15),
+                    // MyServicesGrid(width: size.width, imgUrl: '',),
                     SizedBox(height: 30),
                     //! Portfolio ended here
 //

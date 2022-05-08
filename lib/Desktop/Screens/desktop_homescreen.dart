@@ -141,7 +141,7 @@ class _DesktopHomePageState extends State<DesktopHomePage> {
                             'These are some of the works I have done so far both side projects and works for Clients(of course with their permission).',
                       ),
                       SizedBox(
-                        height: size.height,
+                        height: size.height * 1.5,
                         child: AnimatedOpacity(
                           opacity: pixels >= 100 ? 1.0 : 0.3,
                           duration: Duration(milliseconds: 500),
@@ -153,20 +153,30 @@ class _DesktopHomePageState extends State<DesktopHomePage> {
                                     : 500),
                             child: GridView.count(
                               physics: NeverScrollableScrollPhysics(),
-                              crossAxisCount: 3,
-                              mainAxisSpacing: 10,
-                              crossAxisSpacing: 10,
-                              childAspectRatio: 1.5,
-                              children: const [
-                                MyServicesGrid(),
-                                MyServicesGrid(),
-                                MyServicesGrid(),
-                                MyServicesGrid(),
-                                MyServicesGrid(),
-                                MyServicesGrid(),
-                                MyServicesGrid(),
-                                MyServicesGrid(),
-                                MyServicesGrid(),
+                              crossAxisCount: 2,
+                              mainAxisSpacing: 35,
+                              crossAxisSpacing: 35,
+                              childAspectRatio: 1,
+                              children: [
+                                MyServicesGrid(
+                                  imgUrl: 'assets/images/medical.jpg',
+                                ),
+                                MyServicesGrid(
+                                  imgUrl: 'assets/images/emerieSUG.jpg',
+                                ),
+
+                                MyServicesGrid(
+                                  imgUrl: 'assets/images/nemyMain.jpg',
+                                ),
+                                MyServicesGrid(
+                                  imgUrl: 'assets/images/nemyAdmin.jpg',
+                                ),
+
+                                // MyServicesGrid(imgUrl:  'assets/images/nemyAdmin.jpg',),
+                                // MyServicesGrid(imgUrl:  'assets/images/nemyAdmin.jpg',),
+                                // MyServicesGrid(imgUrl:  'assets/images/nemyAdmin.jpg',),
+                                // MyServicesGrid(imgUrl:  'assets/images/nemyAdmin.jpg',),
+                                // MyServicesGrid(imgUrl:  'assets/images/nemyAdmin.jpg',),
                               ],
                             ),
                           ),

@@ -42,7 +42,13 @@ class _DesktopNavBarState extends State<DesktopNavBar> {
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
-          Text('Captured-Heart 💜'),
+          Text(
+            'C-H 💜',
+            style: TextStyle(
+              fontSize: 22,
+              fontWeight: FontWeight.bold,
+            ),
+          ),
           SizedBox(
             width: widget.size.width * 0.45,
             child: Row(
@@ -113,7 +119,7 @@ class _DesktopNavBarState extends State<DesktopNavBar> {
 TextStyle textStyle(dynamic _hover, int index) {
   return TextStyle(
     fontWeight: FontWeight.bold,
-    fontSize: !_hover[index] ? 18 : 26,
+    fontSize: !_hover[index] ? 18 : 20,
     color: !_hover[index] ? Colors.black : Colors.orange[400],
   );
 }

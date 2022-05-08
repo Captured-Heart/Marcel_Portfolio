@@ -12,7 +12,7 @@ class Emails {
 
   final TextEditingController messageController = TextEditingController();
 
-  Future sendEmail() async {
+  Future <void> sendEmail() async {
     const serviceId = 'service_nszzfut';
     const templateId = 'template_w2qmsov';
     const userId = 'ZTbJWXylETg_rn5Dy';

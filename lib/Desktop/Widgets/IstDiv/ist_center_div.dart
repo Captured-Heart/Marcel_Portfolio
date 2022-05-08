@@ -3,6 +3,7 @@
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_neumorphic/flutter_neumorphic.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:my_portfolio/Utils/url_launcher.dart';
 
 class IstCenterDivDesktop extends StatelessWidget {
@@ -52,8 +53,8 @@ class IstCenterDivDesktop extends StatelessWidget {
                       crossAxisAlignment: CrossAxisAlignment.center,
                       children: [
                         AutoSizeText(
-                          'Nkpozi Marcel Kelechi ',
-                          style: TextStyle(
+                          'Nkpozi  Marcel Kelechi ',
+                          style: GoogleFonts.oleoScript(
                             fontSize: size.width * 0.03,
                             fontWeight: FontWeight.bold,
                           ),
