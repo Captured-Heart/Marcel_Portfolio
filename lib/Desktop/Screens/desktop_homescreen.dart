@@ -1,7 +1,6 @@
 // ignore_for_file: prefer_const_constructors
 
 import 'package:flutter/material.dart';
-import 'package:flutter_lorem/flutter_lorem.dart';
 import 'package:flutter_neumorphic/flutter_neumorphic.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:im_stepper/stepper.dart';
@@ -13,8 +12,8 @@ import 'package:my_portfolio/Desktop/Widgets/center_title.dart';
 import 'package:my_portfolio/Desktop/Widgets/desktop_navbar.dart';
 import 'package:my_portfolio/Desktop/Widgets/IstDiv/ist_center_div.dart';
 import 'package:my_portfolio/Desktop/Widgets/ServicesGrid/service_grid.dart';
+import 'package:my_portfolio/Utils/portfolio_util.dart';
 import 'package:my_portfolio/Utils/responsive.dart';
-import 'package:step_progress_indicator/step_progress_indicator.dart';
 
 class DesktopHomePage extends StatefulWidget {
   const DesktopHomePage({
@@ -73,9 +72,10 @@ class _DesktopHomePageState extends State<DesktopHomePage> {
     offsetContact,
   ];
   static double offsetHome = 0;
-  static double offsetPortfolio = 630;
-  static double offsetAbout = 1800;
-  static double offsetContact = 3000;
+  static double offsetPortfolio = 750;
+  static double offsetAbout = 2540;
+  static double offsetContact = 3800;
+  final PortfolioUtil portfolioUtil = PortfolioUtil();
 
   @override
   Widget build(BuildContext context) {
@@ -141,48 +141,60 @@ class _DesktopHomePageState extends State<DesktopHomePage> {
                             'These are some of the works I have done so far both side projects and works for Clients(of course with their permission).',
                       ),
                       SizedBox(
-                        height: size.height * 1.5,
+                        height: Responsive.isDesktop(context ) ? size.height * 1.5 : size.height * 2,
                         child: AnimatedOpacity(
                           opacity: pixels >= 100 ? 1.0 : 0.3,
                           duration: Duration(milliseconds: 500),
                           child: AnimatedPadding(
                             duration: Duration(milliseconds: 1000),
                             padding: EdgeInsets.only(
-                                left: pixels >= 100 && pixels <= 1880
+                                left: pixels >= 100 && pixels <= 2500
                                     ? 0.0
                                     : 500),
                             child: GridView.count(
                               physics: NeverScrollableScrollPhysics(),
-                              crossAxisCount: 2,
+                              crossAxisCount: Responsive.isTablet(context ) ? 1 : 2,
                               mainAxisSpacing: 35,
                               crossAxisSpacing: 35,
-                              childAspectRatio: 1,
+                              childAspectRatio:Responsive.isDesktop(context) ? 1 : 1.3,
                               children: [
                                 MyServicesGrid(
                                   imgUrl: 'assets/images/medical.jpg',
+                                  title: 'Medical App',
+                                  content: portfolioUtil.portfolioMesssage[0],
+                                  gitHubUrl:
+                                      portfolioUtil.portfolioGitHubUrl[0],
                                 ),
                                 MyServicesGrid(
                                   imgUrl: 'assets/images/emerieSUG.jpg',
+                                  title: 'EmerieSUG',
+                                  content: portfolioUtil.portfolioMesssage[1],
+                                  gitHubUrl:
+                                      portfolioUtil.portfolioGitHubUrl[1],
                                 ),
 
                                 MyServicesGrid(
                                   imgUrl: 'assets/images/nemyMain.jpg',
+                                  title: 'NemyMain',
+                                  content: portfolioUtil.portfolioMesssage[2],
+                                  gitHubUrl:
+                                      portfolioUtil.portfolioGitHubUrl[2],
                                 ),
                                 MyServicesGrid(
                                   imgUrl: 'assets/images/nemyAdmin.jpg',
+                                  title: 'NemyAdmin',
+                                  content: portfolioUtil.portfolioMesssage[3],
+                                  gitHubUrl:
+                                      portfolioUtil.portfolioGitHubUrl[3],
                                 ),
 
-                                // MyServicesGrid(imgUrl:  'assets/images/nemyAdmin.jpg',),
-                                // MyServicesGrid(imgUrl:  'assets/images/nemyAdmin.jpg',),
-                                // MyServicesGrid(imgUrl:  'assets/images/nemyAdmin.jpg',),
-                                // MyServicesGrid(imgUrl:  'assets/images/nemyAdmin.jpg',),
-                                // MyServicesGrid(imgUrl:  'assets/images/nemyAdmin.jpg',),
+                              
                               ],
                             ),
                           ),
                         ),
                       ),
-                      SizedBox(height: size.height * 0.06),
+                      SizedBox(height: size.height * 0.04),
                       CenterTitleWidget(
                         size: size * 1.2,
                         title: 'ABOUT',

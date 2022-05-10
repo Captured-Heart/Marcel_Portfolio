@@ -29,7 +29,8 @@ void main() async {
   runApp(
     DevicePreview(
       builder: (context) => const MyApp(),
-      enabled: !kReleaseMode,
+      enabled: !kDebugMode
+      // !kReleaseMode,
     ),
   );
 }
@@ -53,7 +54,7 @@ class MyApp extends StatelessWidget {
         desktop: DesktopHomePage(),
         mobile: MobileScreen(),
         //!recall to construct tablet mode from desktop
-        tablet: DesktopHomePage(),
+        tablet: MobileScreen(),
       ),
     );
   }

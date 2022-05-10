@@ -1,9 +1,9 @@
 // ignore_for_file: prefer_const_constructors
 
 import 'package:auto_size_text/auto_size_text.dart';
-import 'package:flutter/material.dart';
 import 'package:flutter_neumorphic/flutter_neumorphic.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:my_portfolio/Utils/responsive.dart';
 import 'package:my_portfolio/Utils/url_launcher.dart';
 
 class IstCenterDivDesktop extends StatelessWidget {
@@ -36,11 +36,12 @@ class IstCenterDivDesktop extends StatelessWidget {
       ),
       child: Container(
         color: Colors.white,
-        height: size.height * 0.7,
+        height: Responsive.isDesktop(context)? size.height * 0.7 : size.height * 0.5,
         child: Row(
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             Expanded(
+              flex: 1,
               child: Container(
                 // height: size.height * 0.35,
                 padding: EdgeInsets.only(left: size.width * 0.07),
@@ -52,13 +53,18 @@ class IstCenterDivDesktop extends StatelessWidget {
                     Column(
                       crossAxisAlignment: CrossAxisAlignment.center,
                       children: [
-                        AutoSizeText(
-                          'Nkpozi  Marcel Kelechi ',
-                          style: GoogleFonts.oleoScript(
-                            fontSize: size.width * 0.03,
-                            fontWeight: FontWeight.bold,
+                        SizedBox(
+                          width: size.width / 2,
+                          child: AutoSizeText(
+                            'Nkpozi  Marcel  Kelechi ',
+                            style: GoogleFonts.oleoScript(
+                              fontSize: Responsive.isDesktop(context)
+                                  ? size.width * 0.03
+                                  : 26,
+                              fontWeight: FontWeight.bold,
+                            ),
+                            maxLines: 1,
                           ),
-                          maxLines: 1,
                         ),
                         SizedBox(height: 10),
                         AutoSizeText(
@@ -75,9 +81,9 @@ class IstCenterDivDesktop extends StatelessWidget {
                     SizedBox(height: size.height * 0.05),
                     AutoSizeText(
                       loremp,
-                      maxLines: 7,
+                      maxLines: Responsive.isDesktop(context) ? 7 : 11,
                       style: TextStyle(
-                        fontSize: 35,
+                        fontSize: Responsive.isDesktop(context) ? 35 : 17,
                       ),
                     ),
                     SizedBox(height: size.height * 0.03),
@@ -104,7 +110,7 @@ class IstCenterDivDesktop extends StatelessWidget {
                                 style: TextStyle(
                                   fontWeight: FontWeight.w500,
                                   color: Colors.black,
-                                  fontSize: 24,
+                                  fontSize: Responsive.isDesktop(context)? 24 : 16,
                                 ),
                                 maxLines: 1,
                                 textAlign: TextAlign.center,
@@ -123,17 +129,21 @@ class IstCenterDivDesktop extends StatelessWidget {
                 ),
               ),
             ),
-            Column(
-              mainAxisAlignment: MainAxisAlignment.end,
-              children: [
-                Flexible(
-                  fit: FlexFit.tight,
-                  child: Image.asset(
+            Expanded(
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.end,
+                crossAxisAlignment: CrossAxisAlignment.end,
+                //  fit: Responsive.isDesktop(context)
+                //         ? FlexFit.tight
+                //         : FlexFit.loose,
+                children: [
+                  Image.asset(
                     'assets/images/myDp1.png',
                     fit: BoxFit.fitHeight,
+                    width: size.width * 0.5,
                   ),
-                ),
-              ],
+                ],
+              ),
             )
           ],
         ),

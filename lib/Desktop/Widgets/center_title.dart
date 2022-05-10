@@ -21,21 +21,35 @@ class CenterTitleWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      width: size.width * 0.45,
+      width: Responsive.isTablet(context) ? size.width * 0.65 : size.width * 0.45,
       // height: size.height * 0.15,
       child: Padding(
         padding: EdgeInsets.only(bottom: size.height * 0.05),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.spaceAround,
           children: [
-            AutoSizeText(
-              title,
-              style: TextStyle(
-                fontWeight: FontWeight.w800,
-                fontSize: 30,
-                color: Colors.orange[400],
-              ),
-              maxLines: 1,
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                AutoSizeText(
+                  title,
+                  style: TextStyle(
+                    fontWeight: FontWeight.w800,
+                    fontSize: 30,
+                    color: Colors.orange[400],
+                  ),
+                  maxLines: 1,
+                ),
+                SizedBox(width: 5),
+                SizedBox(
+                  width: size.width * 0.03,
+                  child: Divider(
+                    height: 2,
+                    thickness: 3,
+                    color: Colors.orange[400],
+                  ),
+                )
+              ],
             ),
             SizedBox(
               height: 7,
@@ -57,22 +71,25 @@ class CenterTitleWidget extends StatelessWidget {
               child: DefaultTextStyle(
                 maxLines: 1,
                 textAlign: TextAlign.center,
-                style:GoogleFonts.oleoScript(
+                style: GoogleFonts.oleoScript(
                   fontWeight: FontWeight.w900,
-                  fontSize: Responsive.isDesktop(context)? 50 : 33,
+                  color: Colors.black,
+                  fontSize: Responsive.isDesktop(context) ? 50 : 33,
                   letterSpacing: 2.5,
                   // foreground: Paint()
                   //   ..strokeWidth = 2.8
                   //   ..style = PaintingStyle.stroke
                   //   ..filterQuality = FilterQuality.low
                   //   ..strokeMiterLimit = 20,
-                    
                 ),
                 child: AnimatedTextKit(
                   repeatForever: true,
                   animatedTexts: [
-                    TypewriterAnimatedText(centerTitle,
-                        cursor: '', speed: Duration(milliseconds: 45),),
+                    TypewriterAnimatedText(
+                      centerTitle,
+                      cursor: '',
+                      speed: Duration(milliseconds: 45),
+                    ),
                   ],
                 ),
               ),

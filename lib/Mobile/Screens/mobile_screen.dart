@@ -10,6 +10,7 @@ import 'package:my_portfolio/Mobile/Widgets/edu_div_mobile.dart';
 import 'package:my_portfolio/Mobile/Widgets/footer_mobile.dart';
 import 'package:my_portfolio/Mobile/Widgets/ist_div_mobile.dart';
 import 'package:my_portfolio/Mobile/Widgets/navbar_mobile.dart';
+import 'package:my_portfolio/Utils/portfolio_util.dart';
 
 class MobileScreen extends StatefulWidget {
   const MobileScreen({Key? key}) : super(key: key);
@@ -68,10 +69,11 @@ class _MobileScreenState extends State<MobileScreen> {
   ];
   static double offsetMenu = 0;
   static double offsetHome = 0;
-  static double offsetPortfolio = 715;
-  static double offsetAbout = 2345;
-  static double offsetContact = 3427;
+  static double offsetPortfolio = 840;
+  static double offsetAbout = 3670;
+  static double offsetContact = 4690;
   final GlobalKey<ScaffoldState> _key = GlobalKey();
+  final PortfolioUtil portfolioUtil = PortfolioUtil();
 
   @override
   Widget build(BuildContext context) {
@@ -130,13 +132,37 @@ class _MobileScreenState extends State<MobileScreen> {
                       subtitle:
                           'These are some of the works i have done so far both side projects and works for clients(of course with their permission)',
                     ),
-                    MyServicesGrid(width: size.width, imgUrl:  'assets/images/nemyAdmin.jpg', ),
+                    MyServicesGrid(
+                      width: size.width,
+                      imgUrl: 'assets/images/medical.jpg',
+                      title: 'Medical App',
+                      content: portfolioUtil.portfolioMesssage[0],
+                      gitHubUrl: portfolioUtil.portfolioGitHubUrl[0],
+                    ),
                     SizedBox(height: 15),
-                    MyServicesGrid(width: size.width, imgUrl:  'assets/images/nemyMain.jpg',),
+                    MyServicesGrid(
+                      width: size.width,
+                      imgUrl: 'assets/images/emerieSUG.jpg',
+                      title: 'EmerieSUG',
+                      content: portfolioUtil.portfolioMesssage[1],
+                      gitHubUrl: portfolioUtil.portfolioGitHubUrl[1],
+                    ),
                     SizedBox(height: 15),
-                    MyServicesGrid(width: size.width, imgUrl:  'assets/images/emerieSUG.jpg',),
+                    MyServicesGrid(
+                      width: size.width,
+                      imgUrl: 'assets/images/nemyMain.jpg',
+                      title: 'NemyMain',
+                      content: portfolioUtil.portfolioMesssage[2],
+                      gitHubUrl: portfolioUtil.portfolioGitHubUrl[2],
+                    ),
                     SizedBox(height: 15),
-                    MyServicesGrid(width: size.width, imgUrl:  'assets/images/medical.jpg',),
+                    MyServicesGrid(
+                      width: size.width,
+                      imgUrl: 'assets/images/nemyAdmin.jpg',
+                      title: 'NemyAdmin',
+                      content: portfolioUtil.portfolioMesssage[3],
+                      gitHubUrl: portfolioUtil.portfolioGitHubUrl[3],
+                    ),
                     // SizedBox(height: 15),
                     // MyServicesGrid(width: size.width, imgUrl: '',),
                     SizedBox(height: 30),
@@ -174,8 +200,3 @@ class _MobileScreenState extends State<MobileScreen> {
     );
   }
 }
-
-
-
-
-

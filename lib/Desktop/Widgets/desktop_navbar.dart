@@ -1,6 +1,8 @@
 // ignore_for_file: prefer_const_constructors
 
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:my_portfolio/Utils/responsive.dart';
 
 class DesktopNavBar extends StatefulWidget {
   const DesktopNavBar({
@@ -42,15 +44,24 @@ class _DesktopNavBarState extends State<DesktopNavBar> {
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
-          Text(
-            'C-H 💜',
-            style: TextStyle(
-              fontSize: 22,
-              fontWeight: FontWeight.bold,
-            ),
+          Row(
+            // ignore: prefer_const_literals_to_create_immutables
+            children: [
+              Text(
+                'C-H ',
+                style: TextStyle(
+                  fontSize: 22,
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
+              Icon(
+                FontAwesomeIcons.solidHeart,
+                color: Colors.purple,
+              )
+            ],
           ),
           SizedBox(
-            width: widget.size.width * 0.45,
+            width: Responsive.isDesktop(context)? widget.size.width * 0.45 : widget.size.width * 0.6,
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceAround,
               crossAxisAlignment: CrossAxisAlignment.center,

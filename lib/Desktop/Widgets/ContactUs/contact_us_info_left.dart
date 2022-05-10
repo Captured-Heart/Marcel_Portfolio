@@ -108,15 +108,15 @@ class _ContactUsInfoLeftState extends State<ContactUsInfoLeft> {
                             });
                           });
                         }
-                        //  else {
-                        //   setState(() {
-                        //     loading = false;
-                        //   });
-                        //   dialogs.successDialog(
-                        //       context: context,
-                        //       titleText: 'ERROR',
-                        //       contentText: 'Please fill up required fields');
-                        // }
+                         else {
+                          setState(() {
+                            loading = false;
+                          });
+                          // dialogs.successDialog(
+                          //     context: context,
+                          //     titleText: 'ERROR',
+                          //     contentText: 'Please fill up required fields');
+                        }
 
                         // urlLauncher.launchSocialMediaUrls(
                         //   context,

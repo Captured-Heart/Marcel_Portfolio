@@ -1,7 +1,6 @@
 // ignore_for_file: prefer_const_constructors
 
 import 'package:animated_text_kit/animated_text_kit.dart';
-import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -30,7 +29,7 @@ class CenterTitleMobile extends StatelessWidget {
                 title!,
                 style: TextStyle(
                   fontWeight: FontWeight.w500,
-                  fontSize: 24,
+                  fontSize: 21,
                   color: Colors.orange[400],
                 ),
               ),
@@ -53,7 +52,8 @@ class CenterTitleMobile extends StatelessWidget {
             textAlign: TextAlign.center,
             style: GoogleFonts.oleoScript(
               fontWeight: FontWeight.w200,
-              fontSize: 26,
+              color: Colors.black,
+              fontSize: 24,
               letterSpacing: 2.5,
             ),
 

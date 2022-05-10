@@ -3,6 +3,7 @@
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter_neumorphic/flutter_neumorphic.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:my_portfolio/Desktop/Widgets/LeftDiv/left_div_extras.dart';
 import 'package:my_portfolio/Desktop/Widgets/LeftDiv/social_buttons.dart';
 import 'package:my_portfolio/Utils/responsive.dart';
@@ -56,9 +57,10 @@ class LeftDivProfile extends StatelessWidget {
             ),
             SizedBox(height: 5),
             AutoSizeText(
-              'Nkpozi Marcel Kelechi',
+              'Nkpozi  Marcel  Kelechi',
               maxLines: 1,
-              style: TextStyle(fontWeight: FontWeight.w600, fontSize: 22),
+              style: GoogleFonts.oleoScript(
+                  fontWeight: FontWeight.w600, fontSize: 22),
             ),
             SizedBox(height: 5),
             Text(
@@ -100,7 +102,9 @@ class LeftDivProfile extends StatelessWidget {
               ),
             ),
             Divider(),
-            Expanded(child: LeftDivSkills(size: size)),
+            Responsive.isMobile(context)
+                ? LeftDivSkills(size: size)
+                : Expanded(child: LeftDivSkills(size: size)),
             Divider(),
             Expanded(
               child: LeftDivExtraSkills(
@@ -123,7 +127,9 @@ class LeftDivProfile extends StatelessWidget {
                 //     : size.height * 0.05,
                 // width: size.width * 0.8,
                 margin: EdgeInsets.symmetric(horizontal: size.width * 0.008),
-                padding: EdgeInsets.symmetric(horizontal: 15, vertical: 9),
+                padding: EdgeInsets.symmetric(
+                    horizontal: 15,
+                    vertical:  9),
                 decoration: BoxDecoration(
                   color: Colors.orange[400],
                 ),
@@ -134,7 +140,9 @@ class LeftDivProfile extends StatelessWidget {
                         child: AutoSizeText(
                           'DOWNLOAD CV',
                           style: TextStyle(
-                              fontWeight: FontWeight.bold, fontSize: 20),
+                            fontWeight: FontWeight.bold,
+                            fontSize: Responsive.isMobile(context) ? 14 : 20,
+                          ),
                           maxLines: 1,
                           textAlign: TextAlign.center,
                         ),
