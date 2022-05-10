@@ -2,7 +2,6 @@
 
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
-import 'package:my_portfolio/Desktop/Widgets/LeftDiv/social_buttons.dart';
 import 'package:my_portfolio/Utils/responsive.dart';
 
 class ContactUsInfoRight extends StatelessWidget {

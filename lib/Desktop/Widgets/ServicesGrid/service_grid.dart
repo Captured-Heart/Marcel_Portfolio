@@ -67,6 +67,7 @@ class MyServicesGrid extends StatelessWidget {
               textAlign: TextAlign.start,
             ),
             // SizedBox(height: 5),
+
             Expanded(
               child: Image.asset(
                 imgUrl,
@@ -75,8 +76,12 @@ class MyServicesGrid extends StatelessWidget {
                 height: size.height,
               ),
             ),
+            SizedBox(
+              width: size.width,
+              child: Divider(thickness: 2),
+            ),
             Padding(
-              padding: const EdgeInsets.only(top:12.0),
+              padding: const EdgeInsets.only(top: 12.0),
               child: Text(content),
             ),
             SizedBox(
@@ -101,7 +106,7 @@ class MyServicesGrid extends StatelessWidget {
                     : size.width * 0.32,
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(10),
-                  color: Colors.green,
+                  color: Colors.orange[400],
                 ),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.center,
@@ -114,7 +119,7 @@ class MyServicesGrid extends StatelessWidget {
                         style: TextStyle(
                             fontWeight: FontWeight.bold,
                             fontSize: 18,
-                            color: Colors.white),
+                            color: Colors.black),
                         // colors: colorizeColors,
                         // speed: Duration(milliseconds: 45),
                       ),
@@ -133,7 +138,10 @@ class MyServicesGrid extends StatelessWidget {
                     //   ],
                     // ),
                     SizedBox(width: 10),
-                    Icon(FontAwesomeIcons.github, color: Colors.white,)
+                    Icon(
+                      FontAwesomeIcons.github,
+                      color: Colors.black,
+                    )
                   ],
                 ),
               ),

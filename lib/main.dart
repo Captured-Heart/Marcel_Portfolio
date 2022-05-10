@@ -1,9 +1,6 @@
 // ignore_for_file: prefer_const_constructors
 
-
-import 'package:device_preview/device_preview.dart';
 import 'package:firebase_core/firebase_core.dart';
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:my_portfolio/Mobile/Screens/mobile_screen.dart';
@@ -27,11 +24,12 @@ void main() async {
     ),
   );
   runApp(
-    DevicePreview(
-      builder: (context) => const MyApp(),
-      enabled: !kDebugMode
-      // !kReleaseMode,
-    ),
+    // DevicePreview(
+    //   builder: (context) =>
+    const MyApp(),
+    //   enabled: !kDebugMode
+    //   // !kReleaseMode,
+    // ),
   );
 }
 
@@ -42,14 +40,13 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      
-      locale: DevicePreview.locale(context),
-      builder: DevicePreview.appBuilder,
+
+      // locale: DevicePreview.locale(context),
+      // builder: DevicePreview.appBuilder,
       title: 'Nkpozi Marcel Kelechi',
       theme: ThemeData(
-        primarySwatch: Colors.brown,
-        textTheme: GoogleFonts.poppinsTextTheme()
-      ),
+          primarySwatch: Colors.brown,
+          textTheme: GoogleFonts.poppinsTextTheme()),
       home: Responsive(
         desktop: DesktopHomePage(),
         mobile: MobileScreen(),

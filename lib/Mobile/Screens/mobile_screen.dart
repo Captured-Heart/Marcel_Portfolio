@@ -44,7 +44,7 @@ class _MobileScreenState extends State<MobileScreen> {
           activeStep = 1;
         }
 
-        print(pixels);
+        // print(pixels);
       });
     });
   }

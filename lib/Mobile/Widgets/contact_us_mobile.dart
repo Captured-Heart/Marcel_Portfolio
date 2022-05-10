@@ -1,9 +1,8 @@
-// ignore_for_file: prefer_const_constructors
+// ignore_for_file: prefer_const_constructors, prefer_const_constructors_in_immutables
 
 import 'package:flutter_neumorphic/flutter_neumorphic.dart';
 import 'package:my_portfolio/Desktop/Widgets/ContactUs/contact_us_info_left.dart';
 import 'package:my_portfolio/Desktop/Widgets/ContactUs/contact_us_info_right.dart';
-import 'package:my_portfolio/Utils/url_launcher.dart';
 
 import '../../Utils/dialogs.dart';
 import '../../Utils/send_email.dart';

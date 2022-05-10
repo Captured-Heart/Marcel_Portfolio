@@ -1,6 +1,5 @@
 // ignore_for_file: prefer_const_constructors
 
-import 'package:animated_widgets/animated_widgets.dart';
 import 'package:flutter/material.dart';
 
 class SocialButtons extends StatelessWidget {

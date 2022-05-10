@@ -1,4 +1,3 @@
-import 'package:flutter_lorem/flutter_lorem.dart';
 
 class PortfolioUtil {
   // Map<String, String> portfolioMessage = {
