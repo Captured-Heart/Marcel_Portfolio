@@ -44,3 +44,6 @@ app.*.map.json
 /android/app/debug
 /android/app/profile
 /android/app/release
+
+#
+/home/captured-heart/DEV MAIN/MARATHON/my_portfolio/lib/Utils/send_email.dart

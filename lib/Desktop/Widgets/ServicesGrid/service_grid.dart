@@ -101,9 +101,10 @@ class MyServicesGrid extends StatelessWidget {
               },
               child: Container(
                 padding: EdgeInsets.all(10),
-                width: Responsive.isDesktop(context)
-                    ? size.width * 0.1
-                    : size.width * 0.32,
+                margin: Responsive.isMobile(context) ? EdgeInsets.symmetric(horizontal: size.width * 0.15): EdgeInsets.symmetric(horizontal: size.width * 0.05),
+                // width: Responsive.isDesktop(context)
+                //     ? size.width * 0.1
+                //     : size.width * 0.4,
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(10),
                   color: Colors.orange[400],
@@ -112,17 +113,15 @@ class MyServicesGrid extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.center,
                   // ignore: prefer_const_literals_to_create_immutables
                   children: [
-                    Expanded(
-                      child: AutoSizeText(
-                        'View Code',
-                        maxLines: 1,
-                        style: TextStyle(
-                            fontWeight: FontWeight.bold,
-                            fontSize: 18,
-                            color: Colors.black),
-                        // colors: colorizeColors,
-                        // speed: Duration(milliseconds: 45),
-                      ),
+                    AutoSizeText(
+                      'View Code',
+                      maxLines: 1,
+                      style: TextStyle(
+                          fontWeight: FontWeight.bold,
+                          fontSize: 18,
+                          color: Colors.black),
+                      // colors: colorizeColors,
+                      // speed: Duration(milliseconds: 45),
                     ),
                     // AnimatedTextKit(
                     //   repeatForever: true,

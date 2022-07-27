@@ -214,7 +214,7 @@ class _DesktopHomePageState extends State<DesktopHomePage> {
                         title: 'CONTACT ME',
                         subtitle:
                             'If you have some thing you would like me to build for you or an enquiry please message. I am available to work on your projects and bring your ideas to life. I am just a click away.',
-                        centerTitle: 'I would Love To Hear From You.',
+                        centerTitle: 'I Love To Hear From You.',
                       ),
                       SizedBox(
                         height: size.height * 0.63,

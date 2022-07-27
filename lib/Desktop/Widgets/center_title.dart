@@ -21,7 +21,7 @@ class CenterTitleWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      width: Responsive.isTablet(context) ? size.width * 0.65 : size.width * 0.45,
+      width: Responsive.isTablet(context) ? size.width * 0.75 : size.width * 0.65,
       // height: size.height * 0.15,
       child: Padding(
         padding: EdgeInsets.only(bottom: size.height * 0.05),

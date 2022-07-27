@@ -181,7 +181,7 @@ class _MobileScreenState extends State<MobileScreen> {
                     CenterTitleMobile(
                       size: size,
                       title: 'CONTACT ME',
-                      centerTitle: 'I Would Love To Hear From You',
+                      centerTitle: 'I Love To Hear From You',
                       subtitle:
                           'if you like something you would love me to build for you or an enquiry, please message. i am available to work on your projects and bring your ideas to life. i am just one click away',
                     ),
