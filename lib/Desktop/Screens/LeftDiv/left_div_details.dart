@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:my_portfolio/Desktop/Widgets/LeftDiv/left_details_components.dart';
+import 'package:my_portfolio/Desktop/Screens/LeftDiv/left_details_components.dart';
 
 class LeftDivDetails extends StatelessWidget {
   const LeftDivDetails({

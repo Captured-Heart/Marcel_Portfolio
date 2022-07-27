@@ -1,5 +1,3 @@
-// ignore_for_file: prefer_const_constructors
-
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:my_portfolio/Utils/responsive.dart';
@@ -59,7 +57,7 @@ class ContactUsInfoRight extends StatelessWidget {
             AnimatedPadding(
               padding: padding,
               duration: Duration(milliseconds: 1600),
-              child: ContactInfoDetails(
+              child: ContactInfoListTile(
                 size: size,
                 text: 'knkpozi@gmail.com',
                 text2: 'kcmarcel96@gmail.com',
@@ -70,7 +68,7 @@ class ContactUsInfoRight extends StatelessWidget {
             AnimatedPadding(
               padding: padding,
               duration: Duration(milliseconds: 2000),
-              child: ContactInfoDetails(
+              child: ContactInfoListTile(
                 size: size,
                 icon: Icons.phone,
                 text2: '+2347051678158',
@@ -91,8 +89,8 @@ TextStyle textStyle(context) {
   );
 }
 
-class ContactInfoDetails extends StatelessWidget {
-  const ContactInfoDetails(
+class ContactInfoListTile extends StatelessWidget {
+  const ContactInfoListTile(
       {Key? key,
       required this.size,
       required this.icon,

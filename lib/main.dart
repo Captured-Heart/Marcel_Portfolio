@@ -1,12 +1,11 @@
-// ignore_for_file: prefer_const_constructors
-
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:my_portfolio/Mobile/Screens/mobile_screen.dart';
 import 'package:my_portfolio/Utils/responsive.dart';
 
-import 'Desktop/Screens/desktop_homescreen.dart';
+import 'Desktop/Screens/desktop_pageview_screen.dart';
 import 'config/config.dart';
 
 final config = Configurations();
@@ -26,7 +25,7 @@ void main() async {
   runApp(
     // DevicePreview(
     //   builder: (context) =>
-    const MyApp(),
+    const ProviderScope(child: MyApp()),
     //   enabled: !kDebugMode
     //   // !kReleaseMode,
     // ),
@@ -47,8 +46,8 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
           primarySwatch: Colors.brown,
           textTheme: GoogleFonts.poppinsTextTheme()),
-      home: Responsive(
-        desktop: DesktopHomePage(),
+      home: const Responsive(
+        desktop: DesktopPageViewScreen(),
         mobile: MobileScreen(),
         //!recall to construct tablet mode from desktop
         tablet: MobileScreen(),

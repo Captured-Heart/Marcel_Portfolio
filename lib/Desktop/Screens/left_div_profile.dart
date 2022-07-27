@@ -1,15 +1,13 @@
-// ignore_for_file: prefer_const_constructors
-
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter_neumorphic/flutter_neumorphic.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:my_portfolio/Desktop/Widgets/LeftDiv/left_div_extras.dart';
-import 'package:my_portfolio/Desktop/Widgets/LeftDiv/social_buttons.dart';
 import 'package:my_portfolio/Utils/responsive.dart';
 import 'package:my_portfolio/Utils/url_launcher.dart';
 
-import '../Widgets/LeftDiv/left_div_skill.dart';
+import 'LeftDiv/left_div_extras.dart';
+import 'LeftDiv/left_div_skill.dart';
+import 'LeftDiv/social_buttons.dart';
 
 class LeftDivProfile extends StatelessWidget {
   LeftDivProfile({
@@ -28,7 +26,7 @@ class LeftDivProfile extends StatelessWidget {
         style: NeumorphicStyle(
             shape: NeumorphicShape.concave,
             boxShape: NeumorphicBoxShape.roundRect(
-              BorderRadius.only(
+              const BorderRadius.only(
                 bottomRight: Radius.circular(10),
               ),
             ),
@@ -48,29 +46,29 @@ class LeftDivProfile extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: [
               CircleAvatar(
-                backgroundColor: Color(0xffE5E5E5),
+                backgroundColor: const Color(0xffE5E5E5),
                 radius: Responsive.isMobile(context)
                     ? size.width * 0.15
                     : size.width * 0.045,
-                backgroundImage: AssetImage(
+                backgroundImage: const AssetImage(
                   'assets/images/myDp1.png',
                 ),
               ),
-              SizedBox(height: 5),
+              const SizedBox(height: 5),
               AutoSizeText(
                 'Nkpozi  Marcel  Kelechi',
                 maxLines: 1,
                 style: GoogleFonts.oleoScript(
                     fontWeight: FontWeight.w600, fontSize: 22),
               ),
-              SizedBox(height: 5),
-              Text(
+              const SizedBox(height: 5),
+              const Text(
                 'Full Stack Flutter Developer',
-                style: TextStyle(
+                style:  TextStyle(
                   decoration: TextDecoration.underline,
                 ),
               ),
-              SizedBox(height: 10),
+              const SizedBox(height: 10),
               SizedBox(
                 width: size.width * 0.85,
                 child: Row(
@@ -88,31 +86,32 @@ class LeftDivProfile extends StatelessWidget {
                       icons: FontAwesomeIcons.twitter,
                       onTap: () {
                         urlLauncher.launchSocialMediaUrls(context,
-                            url:
-                                Uri.parse('https://twitter.com/CapturedWarrior'));
+                            url: Uri.parse(
+                                'https://twitter.com/CapturedWarrior'));
                       },
                     ),
                     SocialButtons(
                       icons: FontAwesomeIcons.github,
                       onTap: () {
                         urlLauncher.launchSocialMediaUrls(context,
-                            url: Uri.parse('https://github.com/Captured-Heart'));
+                            url:
+                                Uri.parse('https://github.com/Captured-Heart'));
                       },
                     ),
                   ],
                 ),
               ),
-              Divider(),
+              const Divider(),
               Responsive.isMobile(context)
                   ? LeftDivSkills(size: size)
                   : Expanded(child: LeftDivSkills(size: size)),
-              Divider(),
+              const Divider(),
               Expanded(
                 child: LeftDivExtraSkills(
                   size: size,
                 ),
               ),
-              Divider(),
+              const Divider(),
               InkWell(
                 onTap: () {
                   urlLauncher.launchSocialMediaUrls(
@@ -128,9 +127,7 @@ class LeftDivProfile extends StatelessWidget {
                   //     : size.height * 0.05,
                   // width: size.width * 0.8,
                   margin: EdgeInsets.symmetric(horizontal: size.width * 0.008),
-                  padding: EdgeInsets.symmetric(
-                      horizontal: 15,
-                      vertical:  9),
+                  padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 9),
                   decoration: BoxDecoration(
                     color: Colors.orange[400],
                   ),
@@ -149,7 +146,7 @@ class LeftDivProfile extends StatelessWidget {
                           ),
                         ),
                         // SizedBox(width: 7),
-                        Icon(Icons.file_download_outlined)
+                        const Icon(Icons.file_download_outlined)
                       ]),
                 ),
               ),

@@ -1,5 +1,3 @@
-// ignore_for_file: prefer_const_constructors
-
 import 'package:flutter/material.dart';
 import 'package:flutter_lorem/flutter_lorem.dart';
 import 'package:flutter_neumorphic/flutter_neumorphic.dart';
@@ -9,71 +7,67 @@ class EducationDiv extends StatelessWidget {
   const EducationDiv({
     Key? key,
     required this.size,
-    this.offset,
-    required this.scale,
   }) : super(key: key);
 
   final Size size;
-  final Offset? offset;
-  final double scale;
 
   @override
   Widget build(BuildContext context) {
-    return AnimatedScale(
-      duration: Duration(milliseconds: 1500),
-      scale: scale,
-      child: Container(
-        width: size.width,
-        padding: EdgeInsets.symmetric(horizontal: size.width * 0.04, vertical: size.width * 0.02),
-        decoration: BoxDecoration(
-            color: Colors.white, borderRadius: BorderRadius.circular(10)),
-        margin: EdgeInsets.symmetric(horizontal: 10),
-        child: Column(
-          children: [
-            EducationDivOptonsMobile(
+    return Container(
+      width: size.width,
+      // height: size.height * 0.6,
+      padding: EdgeInsets.symmetric(
+        horizontal: size.width * 0.04,
+        vertical: size.width * 0.02,
+      ),
+      decoration: BoxDecoration(
+          color: Colors.white, borderRadius: BorderRadius.circular(10)),
+      // margin: EdgeInsets.symmetric(horizontal: 10),
+      child: Column(
+        children: [
+          EducationDivOptonsMobile(
+            size: size,
+            date: 'Feb 2022 - May 2022',
+            company: 'Nestuge Technologies',
+            position: 'Flutter Intern',
+            role:
+                '- I worked remotely Using Visual Studio, Flutter/Dart and other softwares tools to maintain codes that were used to develop the Nestuge Products(Hubs & Campuskonekt) Mobile App.',
+          ),
+          SizedBox(
+            child: Divider(
+              thickness: 1,
+              height: 1,
+              color: Colors.orange[400],
+            ),
+            width: size.width * 0.85,
+            height: 50,
+          ),
+          EducationDivOptonsMobile(
               size: size,
-              date: 'Feb 2022 - Present',
-              company: 'Nestuge Technologies',
-              position: 'Flutter Intern',
+              date: 'Nov 2022 - Jan 2022',
+              company: 'Miyotl',
+              position: 'Flutter Consultant',
               role:
-                  '- I worked remotely Using Visual Studio, Flutter/Dart and other softwares tools to maintain codes that were used to develop the Nestuge Products(Hubs & Campuskonekt) Mobile App.',
+                  '''- A company that uses their mobile app to reduce the extinction of the community that speaks a Mexican language
+    
+    - I was recruited to help maintain the code base, fix bugs and add new features where need be.'''),
+          SizedBox(
+            child: Divider(
+              thickness: 1,
+              height: 1,
+              color: Colors.orange[400],
             ),
-            SizedBox(
-              child: Divider(
-                thickness: 1,
-                height: 1,
-                color: Colors.orange[400],
-              ),
-              width: size.width * 0.85,
-              height: 50,
-            ),
-            EducationDivOptonsMobile(
-                size: size,
-                date: 'Nov 2022 - Jan 2022',
-                company: 'Miyotl',
-                position: 'Flutter Consultant',
-                role:
-                    '''- A company that uses their mobile app to reduce the extinction of the community that speaks a Mexican language
-
-- I was recruited to help maintain the code base, fix bugs and add new features where need be.'''),
-            SizedBox(
-              child: Divider(
-                thickness: 1,
-                height: 1,
-                color: Colors.orange[400],
-              ),
-              width: size.width * 0.85,
-              height: 50,
-            ),
-            EducationDivOptonsMobile(
-                size: size,
-                date: 'Oct 2019 - Apr 2021',
-                company: 'Roar Hub Nigeria',
-                position: 'C.E.O, C.T.O,  JOAN-Handiy(Start-up)',
-                role:
-                    '- I Used Html/CSS/Js to build websites, dashboards for the patients and hospital softwares.'),
-          ],
-        ),
+            width: size.width * 0.85,
+            height: 50,
+          ),
+          EducationDivOptonsMobile(
+              size: size,
+              date: 'Oct 2019 - Apr 2021',
+              company: 'Roar Hub Nigeria',
+              position: 'C.E.O, C.T.O,  JOAN-Handiy & MedRek(Start-up)',
+              role:
+                  '- I Used Html/CSS/Js to build websites, dashboards for the patients and hospital softwares.'),
+        ],
       ),
     );
   }

@@ -1,5 +1,3 @@
-// ignore_for_file: prefer_const_constructors
-
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter_neumorphic/flutter_neumorphic.dart';
 import 'package:my_portfolio/Utils/responsive.dart';
@@ -15,7 +13,7 @@ class EducationDivMobile extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Neumorphic(
-      style: NeumorphicStyle(
+      style: const NeumorphicStyle(
         shape: NeumorphicShape.concave,
         // boxShape: NeumorphicBoxShape.roundRect(BorderRadius.circular(12)),
         depth: 3,
@@ -26,7 +24,7 @@ class EducationDivMobile extends StatelessWidget {
       ),
       child: Container(
         // height: size.height,
-        padding: EdgeInsets.only(bottom: 20),
+        padding: const EdgeInsets.only(bottom: 20),
         width: size.width,
         color: Colors.white,
         child: Column(
@@ -115,11 +113,11 @@ class EducationDivOptonsMobile extends StatelessWidget {
                 child: Text(
                   company!,
                   style: Responsive.isDesktop(context)
-                      ? TextStyle(
+                      ? const TextStyle(
                           fontWeight: FontWeight.bold,
                           fontSize: 28,
                         )
-                      : TextStyle(
+                      : const TextStyle(
                           fontWeight: FontWeight.bold,
                           fontSize: 20,
                         ),
@@ -128,14 +126,12 @@ class EducationDivOptonsMobile extends StatelessWidget {
               subtitle: Text(
                 date!,
                 style: Responsive.isDesktop(context)
-                    ? TextStyle(
-                        fontSize: 17,
-                        fontWeight: FontWeight.w600
-                      )
-                    : TextStyle(fontWeight: FontWeight.w500),
+                    ? const TextStyle(fontSize: 17, fontWeight: FontWeight.w600)
+                    : const TextStyle(fontWeight: FontWeight.w500),
               ),
             ),
           ),
+
           Expanded(
             child: ListTile(
               title: Padding(
@@ -152,17 +148,18 @@ class EducationDivOptonsMobile extends StatelessWidget {
                           thickness: 1, height: 1, color: Colors.orange[400]),
                       width: Responsive.isDesktop(context) ? 30 : 20,
                     ),
-                    SizedBox(width: 8),
+                    const SizedBox(width: 8),
                     Expanded(
                       child: AutoSizeText(
                         position!,
                         style: Responsive.isDesktop(context)
-                            ? TextStyle(
+                            ? const TextStyle(
                                 fontSize: 25, fontWeight: FontWeight.bold)
-                            : TextStyle(
+                            : const TextStyle(
                                 fontWeight: FontWeight.w600,
                               ),
                         maxLines: 1,
+                        overflow: TextOverflow.ellipsis,
                       ),
                     ),
                   ],
@@ -171,8 +168,8 @@ class EducationDivOptonsMobile extends StatelessWidget {
               subtitle: AutoSizeText(
                 role!,
                 style: Responsive.isDesktop(context)
-                    ? TextStyle(fontSize: 24)
-                    : TextStyle(),
+                    ? const TextStyle(fontSize: 24)
+                    : const TextStyle(),
                 // lorem(
                 //   paragraphs: 1,
                 //   words: 45,

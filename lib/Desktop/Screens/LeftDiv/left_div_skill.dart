@@ -1,7 +1,5 @@
-// ignore_for_file: prefer_const_constructors
-
 import 'package:flutter/material.dart';
-import 'package:my_portfolio/Desktop/Widgets/LeftDiv/left_div_language.dart';
+import 'package:my_portfolio/Desktop/Screens/LeftDiv/left_div_language.dart';
 
 class LeftDivSkills extends StatelessWidget {
   const LeftDivSkills({
@@ -20,7 +18,7 @@ class LeftDivSkills extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: [
-          Text(
+          const Text(
             'Skills',
             style: TextStyle(
               fontWeight: FontWeight.bold,
@@ -38,28 +36,28 @@ class LeftDivSkills extends StatelessWidget {
             // ignore: prefer_const_literals_to_create_immutables
             children: [
               LeftDivLanguagesComponents(
-                leading: 'Html', size: size,
-               
+                leading: 'Html',
+                size: size,
               ),
               LeftDivLanguagesComponents(
-                leading: 'CSS', size: size,
-               
+                leading: 'CSS',
+                size: size,
               ),
               LeftDivLanguagesComponents(
-                leading: 'JS', size: size,
-              
+                leading: 'JS',
+                size: size,
               ),
               LeftDivLanguagesComponents(
-                leading: 'Flutter', size: size,
-               
+                leading: 'Flutter',
+                size: size,
               ),
               LeftDivLanguagesComponents(
-                leading: 'NodeJS', size: size,
-               
+                leading: 'Firebase',
+                size: size,
               ),
               LeftDivLanguagesComponents(
-                leading: 'WordPress', size: size,
-               
+                leading: 'WordPress',
+                size: size,
               ),
             ],
           ),

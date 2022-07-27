@@ -1,5 +1,3 @@
-// ignore_for_file: prefer_const_constructors
-
 import 'package:flutter/material.dart';
 import 'package:flutter_animated_dialog/flutter_animated_dialog.dart' as dialog;
 
@@ -24,8 +22,7 @@ class Dialogs {
     );
   }
 
-  Future<Object?> customDialog(
-      {BuildContext? context}) {
+  Future<Object?> customDialog({BuildContext? context}) {
     return dialog.showAnimatedDialog(
       context: context!,
       barrierDismissible: true,

@@ -1,5 +1,3 @@
-// ignore_for_file: prefer_const_constructors
-
 import 'package:flutter/material.dart';
 import 'package:flutter_neumorphic/flutter_neumorphic.dart';
 import 'package:my_portfolio/Desktop/Screens/left_div_profile.dart';
@@ -187,7 +185,7 @@ class _MobileScreenState extends State<MobileScreen> {
                     ),
                     ContactUsInfoFormMobile(size: size),
                     SizedBox(height: 15),
-                    ContactInfoDetailsMobile(size: size),
+                    // ContactInfoDetailsMobile(size: size),
                     SizedBox(height: 30),
                   ],
                 ),

@@ -1,13 +1,11 @@
-// ignore_for_file: prefer_const_constructors
-
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter_neumorphic/flutter_neumorphic.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:my_portfolio/Utils/responsive.dart';
 import 'package:my_portfolio/Utils/url_launcher.dart';
 
-class IstCenterDivDesktop extends StatelessWidget {
-  IstCenterDivDesktop({
+class DesktopHomeScreen extends StatelessWidget {
+  DesktopHomeScreen({
     Key? key,
     required this.size,
     required this.loremp,
@@ -20,10 +18,11 @@ class IstCenterDivDesktop extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Neumorphic(
+      margin: const EdgeInsets.all(20),
       style: NeumorphicStyle(
         shape: NeumorphicShape.concave,
         boxShape: NeumorphicBoxShape.roundRect(
-          BorderRadius.only(
+          const BorderRadius.only(
             bottomLeft: Radius.circular(10),
             bottomRight: Radius.circular(10),
           ),
@@ -36,7 +35,9 @@ class IstCenterDivDesktop extends StatelessWidget {
       ),
       child: Container(
         color: Colors.white,
-        height: Responsive.isDesktop(context)? size.height * 0.7 : size.height * 0.5,
+        height: Responsive.isDesktop(context)
+            ? size.height * 0.7
+            : size.height * 0.5,
         child: Row(
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
@@ -66,10 +67,10 @@ class IstCenterDivDesktop extends StatelessWidget {
                             maxLines: 1,
                           ),
                         ),
-                        SizedBox(height: 10),
-                        AutoSizeText(
+                        const SizedBox(height: 10),
+                        const AutoSizeText(
                           'Full Stack Flutter Developer ',
-                          style: TextStyle(
+                          style:  TextStyle(
                             fontSize: 25,
                             fontWeight: FontWeight.w300,
                             decoration: TextDecoration.underline,
@@ -99,7 +100,7 @@ class IstCenterDivDesktop extends StatelessWidget {
                       child: Container(
                         margin: EdgeInsets.only(right: size.width * 0.08),
                         padding:
-                            EdgeInsets.symmetric(horizontal: 15, vertical: 8),
+                            const EdgeInsets.symmetric(horizontal: 15, vertical: 8),
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                           // ignore: prefer_const_literals_to_create_immutables
@@ -110,13 +111,14 @@ class IstCenterDivDesktop extends StatelessWidget {
                                 style: TextStyle(
                                   fontWeight: FontWeight.w500,
                                   color: Colors.black,
-                                  fontSize: Responsive.isDesktop(context)? 24 : 16,
+                                  fontSize:
+                                      Responsive.isDesktop(context) ? 24 : 16,
                                 ),
                                 maxLines: 1,
                                 textAlign: TextAlign.center,
                               ),
                             ),
-                            Icon(
+                            const Icon(
                               Icons.file_download_outlined,
                               size: 25,
                             )

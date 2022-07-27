@@ -1,7 +1,6 @@
-// ignore_for_file: prefer_const_constructors
-
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class LeftDivLanguages extends StatelessWidget {
   const LeftDivLanguages({
@@ -20,22 +19,26 @@ class LeftDivLanguages extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         crossAxisAlignment: CrossAxisAlignment.start,
         // ignore: prefer_const_literals_to_create_immutables
-        children:  [
-          Text(
+        children: [
+          const Text(
             'Languages',
             style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
           ),
           LeftDivLanguagesComponents(
-            leading: 'English', size: size,
+            leading: 'English',
+            size: size,
           ),
           LeftDivLanguagesComponents(
-            leading: 'Igbo', size: size,
+            leading: 'Igbo',
+            size: size,
           ),
           LeftDivLanguagesComponents(
-            leading: 'French', size: size,
+            leading: 'French',
+            size: size,
           ),
           LeftDivLanguagesComponents(
-            leading: 'Hausa',  size: size,
+            leading: 'Hausa',
+            size: size,
           ),
         ],
       ),
@@ -46,7 +49,8 @@ class LeftDivLanguages extends StatelessWidget {
 class LeftDivLanguagesComponents extends StatelessWidget {
   const LeftDivLanguagesComponents({
     Key? key,
-    required this.leading, required this.size
+    required this.leading,
+    required this.size,
   }) : super(key: key);
   final String leading;
   final Size size;
@@ -55,18 +59,24 @@ class LeftDivLanguagesComponents extends StatelessWidget {
     return Container(
       padding: EdgeInsets.all(size.width * 0.008),
       decoration: BoxDecoration(
-          color: Colors.orange[300],
-          // shape: BoxShape.circle,
-          borderRadius: BorderRadius.circular(30)),
-      child: AutoSizeText(
-        leading,
-        textAlign: TextAlign.center,
-        style: TextStyle(
-          color: Colors.black,
-          fontWeight: FontWeight.bold,
-          fontSize: 14,
-        ),
-        maxLines: 1,
+        color: Colors.orange[300],
+        // shape: BoxShape.circle,
+        borderRadius: BorderRadius.circular(30),
+      ),
+      child: Row(
+        mainAxisSize: MainAxisSize.min,
+        children: [
+          AutoSizeText(
+            leading,
+            textAlign: TextAlign.center,
+            style: const TextStyle(
+              color: Colors.black,
+              fontWeight: FontWeight.bold,
+              fontSize: 14,
+            ),
+            maxLines: 1,
+          ),
+        ],
       ),
     );
   }

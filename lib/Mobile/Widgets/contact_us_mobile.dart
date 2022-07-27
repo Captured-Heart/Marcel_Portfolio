@@ -1,8 +1,9 @@
 // ignore_for_file: prefer_const_constructors, prefer_const_constructors_in_immutables
 
 import 'package:flutter_neumorphic/flutter_neumorphic.dart';
-import 'package:my_portfolio/Desktop/Widgets/ContactUs/contact_us_info_left.dart';
 import 'package:my_portfolio/Desktop/Widgets/ContactUs/contact_us_info_right.dart';
+import 'package:my_portfolio/Desktop/Widgets/contact_me_textfield.dart';
+
 
 import '../../Utils/dialogs.dart';
 import '../../Utils/send_email.dart';
@@ -133,8 +134,8 @@ class _ContactUsInfoFormMobileState extends State<ContactUsInfoFormMobile> {
   }
 }
 
-class ContactInfoDetailsMobile extends StatelessWidget {
-  const ContactInfoDetailsMobile({
+class ContactInfoListTileMobile extends StatelessWidget {
+  const ContactInfoListTileMobile({
     Key? key,
     required this.size,
   }) : super(key: key);
@@ -169,14 +170,14 @@ class ContactInfoDetailsMobile extends StatelessWidget {
             ],
           ),
           SizedBox(height: 15),
-          ContactInfoDetails(
+          ContactInfoListTile(
             size: size * 2.3,
             text: 'knkpozi@gmail.com',
             text2: 'kcmarcel96@gmail.com',
             icon: Icons.email_outlined,
           ),
           SizedBox(height: 15),
-          ContactInfoDetails(
+          ContactInfoListTile(
             size: size * 2.3,
             icon: Icons.phone,
             text2: '+2347051678158',

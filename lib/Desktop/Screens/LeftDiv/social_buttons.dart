@@ -1,11 +1,10 @@
-// ignore_for_file: prefer_const_constructors
-
 import 'package:flutter/material.dart';
 
 class SocialButtons extends StatelessWidget {
   const SocialButtons({
     Key? key,
-    required this.icons, required this.onTap,
+    required this.icons,
+    required this.onTap,
   }) : super(key: key);
   final IconData icons;
   final VoidCallback onTap;

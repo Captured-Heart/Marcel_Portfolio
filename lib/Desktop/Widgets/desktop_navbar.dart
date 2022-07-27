@@ -1,5 +1,3 @@
-// ignore_for_file: prefer_const_constructors
-
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:my_portfolio/Utils/responsive.dart';
@@ -61,7 +59,9 @@ class _DesktopNavBarState extends State<DesktopNavBar> {
             ],
           ),
           SizedBox(
-            width: Responsive.isDesktop(context)? widget.size.width * 0.45 : widget.size.width * 0.6,
+            width: Responsive.isDesktop(context)
+                ? widget.size.width * 0.45
+                : widget.size.width * 0.6,
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceAround,
               crossAxisAlignment: CrossAxisAlignment.center,
