@@ -22,23 +22,26 @@ class LeftDivDetails extends StatelessWidget {
             leading: 'Age: ',
             trailing: '24',
           ),
-          LeftDivDetailsComponents(
-            leading: 'Email: ',
-            trailing: 'knkpozi@gmail.com',
-          ),
-          LeftDivDetailsComponents(
-            leading: 'Country: ',
-            trailing: 'Enugu, Nigeria',
-          ),
-          LeftDivDetailsComponents(
-            leading: 'Address: ',
-            trailing: 'Roar Hub, University of Nigeria, Nsukka',
-          ),
-          LeftDivDetailsComponents(
-            leading: 'FreeLance: ',
-            trailing: 'Available',
-            textColor: Colors.green,
-          ),
+          // LeftDivDetailsComponents(
+          //   leading: 'Email: ',
+          //   trailing: 'knkpozi@gmail.com',
+          // ),
+          // LeftDivDetailsComponents(
+          //   leading: 'Country: ',
+          //   trailing: 'Enugu, Nigeria',
+          // ),
+          // LeftDivDetailsComponents(
+          //   leading: 'Address: ',
+          //   trailing: ' University of Nigeria, Nsukka',
+          // ),
+          // LeftDivDetailsComponents(
+          //   leading: 'FreeLance: ',
+          //   trailing: 'Available',
+          //   textColor: Colors.green,
+          // ),
+          ListTile(dense: true, leading: Text('About'), trailing: Text('hdshjdshj'),),
+          ListTile(leading: Text('About'), trailing: Text(' University of Nigeria, Nsukka'),),
+
         ],
       ),
     );

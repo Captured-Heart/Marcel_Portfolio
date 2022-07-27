@@ -1,0 +1,17 @@
+{
+  "hosting": {
+    "public": "build/web",    
+    "site": "nkpozi",
+    "ignore": [
+      "firebase.json",
+      "**/.*",
+      "**/node_modules/**"
+    ],
+    "rewrites": [
+      {
+        "source": "**",
+        "destination": "/index.html"
+      }
+    ]
+  }
+}

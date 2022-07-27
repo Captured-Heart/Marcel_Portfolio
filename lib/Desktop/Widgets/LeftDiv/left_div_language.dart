@@ -1,5 +1,6 @@
 // ignore_for_file: prefer_const_constructors
 
+import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 
 class LeftDivLanguages extends StatelessWidget {
@@ -19,30 +20,22 @@ class LeftDivLanguages extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         crossAxisAlignment: CrossAxisAlignment.start,
         // ignore: prefer_const_literals_to_create_immutables
-        children: const [
+        children:  [
           Text(
             'Languages',
             style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
           ),
           LeftDivLanguagesComponents(
-            leading: 'English',
-            trailing: '85%',
-            value: 0.85,
+            leading: 'English', size: size,
           ),
           LeftDivLanguagesComponents(
-            leading: 'Igbo',
-            trailing: '80%',
-            value: 0.8,
+            leading: 'Igbo', size: size,
           ),
           LeftDivLanguagesComponents(
-            leading: 'French',
-            trailing: '10%',
-            value: 0.1,
+            leading: 'French', size: size,
           ),
           LeftDivLanguagesComponents(
-            leading: 'Hausa',
-            trailing: '15%',
-            value: 0.15,
+            leading: 'Hausa',  size: size,
           ),
         ],
       ),
@@ -50,34 +43,31 @@ class LeftDivLanguages extends StatelessWidget {
   }
 }
 
-
 class LeftDivLanguagesComponents extends StatelessWidget {
   const LeftDivLanguagesComponents({
     Key? key,
-    required this.leading,
-    required this.trailing,
-    required this.value,
+    required this.leading, required this.size
   }) : super(key: key);
-  final String leading, trailing;
-  final double value;
+  final String leading;
+  final Size size;
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: [
-        Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: [
-            Text(leading),
-            Text(trailing),
-          ],
+    return Container(
+      padding: EdgeInsets.all(size.width * 0.008),
+      decoration: BoxDecoration(
+          color: Colors.orange[300],
+          // shape: BoxShape.circle,
+          borderRadius: BorderRadius.circular(30)),
+      child: AutoSizeText(
+        leading,
+        textAlign: TextAlign.center,
+        style: TextStyle(
+          color: Colors.black,
+          fontWeight: FontWeight.bold,
+          fontSize: 14,
         ),
-        LinearProgressIndicator(
-          backgroundColor: Color(0xffE5E5E5),
-          value: value,
-          valueColor: AlwaysStoppedAnimation<Color>(Colors.orange[400]!),
-        )
-      ],
+        maxLines: 1,
+      ),
     );
   }
 }
-
