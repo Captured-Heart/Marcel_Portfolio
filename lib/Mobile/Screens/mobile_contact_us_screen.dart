@@ -101,13 +101,7 @@ class _ContactUsInfoFormMobileState extends State<MobileContactUsScreen> {
                             });
                           });
                         } else {
-                          // setState(() {
-                          //   loading = false;
-                          // });
-                          // dialogs.successDialog(
-                          //     context: context,
-                          //     titleText: 'ERROR',
-                          //     contentText: 'Please fill up required fields');
+                         
                         }
                       },
                       child: Padding(
