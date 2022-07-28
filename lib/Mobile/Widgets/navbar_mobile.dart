@@ -6,12 +6,12 @@ import 'package:my_portfolio/Utils/responsive.dart';
 class NavBarMobile extends StatelessWidget {
   const NavBarMobile({
     Key? key,
-    required this.activeStep,
+    required this.activePage,
     required this.size,
     required this.onStepReached,
   }) : super(key: key);
 
-  final int activeStep;
+  final int activePage;
   final Size size;
   final Function(int) onStepReached;
 
@@ -20,9 +20,9 @@ class NavBarMobile extends StatelessWidget {
     return IconStepper(
       direction: Axis.horizontal,
       scrollingDisabled: true,
-      stepRadius: Responsive.isMobile(context) ? 19 : 24,
+      stepRadius: Responsive.isMobile(context) ? 22 : 24,
       enableNextPreviousButtons: false,
-      activeStep: activeStep,
+      activeStep: activePage,
       stepPadding: 3,
       activeStepBorderWidth: 2,
       activeStepBorderColor: Colors.grey[400],
@@ -31,13 +31,12 @@ class NavBarMobile extends StatelessWidget {
       stepReachedAnimationDuration: const Duration(seconds: 2),
       activeStepColor: Colors.orange[400],
       lineLength: size.width * 0.045,
-      // ignore: prefer_const_literals_to_create_immutables
-      icons: [
-        const Icon(Icons.menu),
-        const Icon(Icons.home),
-        const Icon(FontAwesomeIcons.file),
-        const Icon(FontAwesomeIcons.userGraduate),
-        const Icon(Icons.phone)
+      icons: const [
+        // const Icon(Icons.menu),
+         Icon(Icons.home),
+         Icon(FontAwesomeIcons.file),
+         Icon(FontAwesomeIcons.userGraduate),
+         Icon(Icons.phone)
       ],
     );
   }

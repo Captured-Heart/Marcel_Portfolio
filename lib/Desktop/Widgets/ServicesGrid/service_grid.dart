@@ -1,6 +1,7 @@
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter_neumorphic/flutter_neumorphic.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:my_portfolio/Utils/responsive.dart';
 import 'package:my_portfolio/Utils/url_launcher.dart';
 
 class MyServicesGrid extends StatelessWidget {
@@ -47,7 +48,7 @@ class MyServicesGrid extends StatelessWidget {
         // color: Colors.grey,
       ),
       child: SizedBox(
-        height: size.height * 0.9,
+        height: Responsive.isMobile(context)? size.height * 0.3 : size.height * 0.9,
         width: size.width * 0.22,
         // color: Colors.white,
         child: Column(

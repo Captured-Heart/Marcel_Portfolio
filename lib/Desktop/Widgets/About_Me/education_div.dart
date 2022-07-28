@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_lorem/flutter_lorem.dart';
 import 'package:flutter_neumorphic/flutter_neumorphic.dart';
-import 'package:my_portfolio/Mobile/Widgets/edu_div_mobile.dart';
+
+import '../../../Mobile/Screens/mobile_about_screen.dart';
 
 class EducationDiv extends StatelessWidget {
   const EducationDiv({

@@ -1,4 +1,4 @@
-import 'package:animated_text_kit/animated_text_kit.dart';
+import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -45,7 +45,8 @@ class CenterTitleMobile extends StatelessWidget {
           const SizedBox(
             height: 10,
           ),
-          DefaultTextStyle(
+          AutoSizeText(
+            centerTitle!,
             maxLines: 1,
             textAlign: TextAlign.center,
             style: GoogleFonts.oleoScript(
@@ -54,23 +55,6 @@ class CenterTitleMobile extends StatelessWidget {
               fontSize: 24,
               letterSpacing: 2.5,
             ),
-
-            // TextStyle(
-            //   fontWeight: FontWeight.w200,
-            //   fontSize: 26,
-            //   foreground: Paint()
-            //     ..strokeWidth = 3.2
-            //     ..style = PaintingStyle.stroke
-            //     ..filterQuality = FilterQuality.low
-            //     ..strokeMiterLimit = 10,
-            // ),
-            child: AnimatedTextKit(repeatForever: true, animatedTexts: [
-              TypewriterAnimatedText(
-                centerTitle!,
-                cursor: '',
-                speed: const Duration(milliseconds: 45),
-              ),
-            ]),
           ),
           const SizedBox(
             height: 10,
@@ -81,6 +65,7 @@ class CenterTitleMobile extends StatelessWidget {
               fontWeight: FontWeight.w300,
               fontSize: 17,
             ),
+            textAlign: TextAlign.center,
           ),
         ],
       ),

@@ -2,7 +2,7 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:my_portfolio/Mobile/Screens/mobile_screen.dart';
+import 'package:my_portfolio/Mobile/Screens/mobile_pageview_screen.dart';
 import 'package:my_portfolio/Utils/responsive.dart';
 
 import 'Desktop/Screens/desktop_pageview_screen.dart';
@@ -46,8 +46,8 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
           primarySwatch: Colors.brown,
           textTheme: GoogleFonts.poppinsTextTheme()),
-      home: const Responsive(
-        desktop: DesktopPageViewScreen(),
+      home:  Responsive(
+        desktop: const DesktopPageViewScreen(),
         mobile: MobileScreen(),
         //!recall to construct tablet mode from desktop
         tablet: MobileScreen(),
