@@ -19,52 +19,52 @@ class LeftDivExtraSkills extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         // ignore: prefer_const_literals_to_create_immutables
         children: [
-          Text(
+          const Text(
             'Extra Skills',
             style: TextStyle(
               fontWeight: FontWeight.bold,
               fontSize: 20,
             ),
           ),
-          SizedBox(height: 5),
+          const SizedBox(height: 5),
           Row(
             children: [
               Icon(
                 FontAwesomeIcons.microsoft,
                 color: Colors.orange[400],
               ),
-              SizedBox(width: 10),
-              Expanded(
+              const SizedBox(width: 10),
+              const Expanded(
                 child: AutoSizeText(
                   'Data Handling and Presentation Skills(Microsoft Office Skills)',
                 ),
               )
             ],
           ),
-          SizedBox(height: 5),
+          const SizedBox(height: 5),
           Row(
             children: [
               Icon(
                 FontAwesomeIcons.video,
                 color: Colors.orange[400],
               ),
-              SizedBox(width: 10),
-              Expanded(
+              const SizedBox(width: 10),
+              const Expanded(
                 child: AutoSizeText(
                   'Communication Tools (Zoom, Google Meet etc)',
                 ),
               )
             ],
           ),
-          SizedBox(height: 5),
+          const SizedBox(height: 5),
           Row(
             children: [
               Icon(
                 Icons.workspaces_sharp,
                 color: Colors.orange[400],
               ),
-              SizedBox(width: 10),
-              Expanded(
+              const SizedBox(width: 10),
+              const Expanded(
                 child: AutoSizeText(
                   'Project Management Skills(Asana, Trello etc)',
                 ),

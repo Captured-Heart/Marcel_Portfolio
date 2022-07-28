@@ -54,8 +54,11 @@ class _MobileScreenState extends State<MobileScreen> {
   }
 
   void scrollTo(int index) {
-    _scrollController.animateTo(scrollPexels[index],
-        duration: Duration(milliseconds: 1500), curve: Curves.linear);
+    _scrollController.animateTo(
+      scrollPexels[index],
+      duration: const Duration(milliseconds: 1200),
+      curve: Curves.linear,
+    );
   }
 
   List scrollPexels = [
@@ -79,7 +82,7 @@ class _MobileScreenState extends State<MobileScreen> {
     return Scaffold(
       drawerEnableOpenDragGesture: false,
       key: _key,
-      backgroundColor: Color(0xffE5E5E5),
+      backgroundColor: const Color(0xffE5E5E5),
       drawer: SafeArea(
         child: Drawer(
           child: LeftDivProfile(size: size),
@@ -110,89 +113,87 @@ class _MobileScreenState extends State<MobileScreen> {
         ),
       ),
       body: SafeArea(
-        child: SingleChildScrollView(
+        child: ListView(
           controller: _scrollController,
-          child: Column(
-            children: [
-              Container(
-                margin: EdgeInsets.symmetric(horizontal: 15),
-                width: size.width,
-                child: Column(
-                  children: [
-                    IstDivMobile(size: size),
-                    SizedBox(height: 25),
+          children: [
+            Container(
+              margin: const EdgeInsets.symmetric(horizontal: 15),
+              width: size.width,
+              child: Column(
+                children: [
+                  IstDivMobile(size: size),
+                  const SizedBox(height: 25),
 
-                    //!portfolio started here
-                    CenterTitleMobile(
-                      size: size,
-                      title: 'PORTFOLIO',
-                      centerTitle: 'Check Out Some of My Works',
-                      subtitle:
-                          'These are some of the works i have done so far both side projects and works for clients(of course with their permission)',
-                    ),
-                    MyServicesGrid(
-                      width: size.width,
-                      imgUrl: 'assets/images/medical.jpg',
-                      title: 'Medical App',
-                      content: portfolioUtil.portfolioMesssage[0],
-                      gitHubUrl: portfolioUtil.portfolioGitHubUrl[0],
-                    ),
-                    SizedBox(height: 15),
-                    MyServicesGrid(
-                      width: size.width,
-                      imgUrl: 'assets/images/emerieSUG.jpg',
-                      title: 'EmerieSUG',
-                      content: portfolioUtil.portfolioMesssage[1],
-                      gitHubUrl: portfolioUtil.portfolioGitHubUrl[1],
-                    ),
-                    SizedBox(height: 15),
-                    MyServicesGrid(
-                      width: size.width,
-                      imgUrl: 'assets/images/nemyMain.jpg',
-                      title: 'NemyMain',
-                      content: portfolioUtil.portfolioMesssage[2],
-                      gitHubUrl: portfolioUtil.portfolioGitHubUrl[2],
-                    ),
-                    SizedBox(height: 15),
-                    MyServicesGrid(
-                      width: size.width,
-                      imgUrl: 'assets/images/nemyAdmin.jpg',
-                      title: 'NemyAdmin',
-                      content: portfolioUtil.portfolioMesssage[3],
-                      gitHubUrl: portfolioUtil.portfolioGitHubUrl[3],
-                    ),
-                    // SizedBox(height: 15),
-                    // MyServicesGrid(width: size.width, imgUrl: '',),
-                    SizedBox(height: 30),
-                    //! Portfolio ended here
+                  //!portfolio started here
+                  CenterTitleMobile(
+                    size: size,
+                    title: 'PORTFOLIO',
+                    centerTitle: 'Check Out Some of My Works',
+                    subtitle:
+                        'These are some of the works i have done so far both side projects and works for clients(of course with their permission)',
+                  ),
+                  MyServicesGrid(
+                    width: size.width,
+                    imgUrl: 'assets/images/medical.jpg',
+                    title: 'Medical App',
+                    content: portfolioUtil.portfolioMesssage[0],
+                    gitHubUrl: portfolioUtil.portfolioGitHubUrl[0],
+                  ),
+                  const SizedBox(height: 15),
+                  MyServicesGrid(
+                    width: size.width,
+                    imgUrl: 'assets/images/emerieSUG.jpg',
+                    title: 'EmerieSUG',
+                    content: portfolioUtil.portfolioMesssage[1],
+                    gitHubUrl: portfolioUtil.portfolioGitHubUrl[1],
+                  ),
+                  const SizedBox(height: 15),
+                  MyServicesGrid(
+                    width: size.width,
+                    imgUrl: 'assets/images/nemyMain.jpg',
+                    title: 'NemyMain',
+                    content: portfolioUtil.portfolioMesssage[2],
+                    gitHubUrl: portfolioUtil.portfolioGitHubUrl[2],
+                  ),
+                  const SizedBox(height: 15),
+                  MyServicesGrid(
+                    width: size.width,
+                    imgUrl: 'assets/images/nemyAdmin.jpg',
+                    title: 'NemyAdmin',
+                    content: portfolioUtil.portfolioMesssage[3],
+                    gitHubUrl: portfolioUtil.portfolioGitHubUrl[3],
+                  ),
+                  // SizedBox(height: 15),
+                  // MyServicesGrid(width: size.width, imgUrl: '',),
+                  const SizedBox(height: 30),
+                  //! Portfolio ended here
 //
 
-                    CenterTitleMobile(
-                      size: size,
-                      title: 'ABOUT',
-                      centerTitle: 'Let Me Introduce Myself',
-                      subtitle:
-                          'Detailed insight to my qualifications and credentials',
-                    ),
-                    EducationDivMobile(size: size),
-                    SizedBox(height: 30),
-                    CenterTitleMobile(
-                      size: size,
-                      title: 'CONTACT ME',
-                      centerTitle: 'I Love To Hear From You',
-                      subtitle:
-                          'if you like something you would love me to build for you or an enquiry, please message. i am available to work on your projects and bring your ideas to life. i am just one click away',
-                    ),
-                    ContactUsInfoFormMobile(size: size),
-                    SizedBox(height: 15),
-                    // ContactInfoDetailsMobile(size: size),
-                    SizedBox(height: 30),
-                  ],
-                ),
+                  CenterTitleMobile(
+                    size: size,
+                    title: 'ABOUT',
+                    centerTitle: 'Let Me Introduce Myself',
+                    subtitle:
+                        'Detailed insight to my qualifications and credentials',
+                  ),
+                  EducationDivMobile(size: size),
+                  const SizedBox(height: 30),
+                  CenterTitleMobile(
+                    size: size,
+                    title: 'CONTACT ME',
+                    centerTitle: 'I Love To Hear From You',
+                    subtitle:
+                        'if you like something you would love me to build for you or an enquiry, please message. i am available to work on your projects and bring your ideas to life. i am just one click away',
+                  ),
+                  ContactUsInfoFormMobile(size: size),
+                  const SizedBox(height: 15),
+                  // ContactInfoDetailsMobile(size: size),
+                  const SizedBox(height: 30),
+                ],
               ),
-              FooterMobile(size: size)
-            ],
-          ),
+            ),
+            FooterMobile(size: size)
+          ],
         ),
       ),
     );

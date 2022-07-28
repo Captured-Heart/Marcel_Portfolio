@@ -28,16 +28,16 @@ class NavBarMobile extends StatelessWidget {
       activeStepBorderColor: Colors.grey[400],
       onStepReached: onStepReached,
       stepReachedAnimationEffect: Curves.linear,
-      stepReachedAnimationDuration: Duration(seconds: 2),
+      stepReachedAnimationDuration: const Duration(seconds: 2),
       activeStepColor: Colors.orange[400],
       lineLength: size.width * 0.045,
       // ignore: prefer_const_literals_to_create_immutables
       icons: [
-        Icon(Icons.menu),
-        Icon(Icons.home),
-        Icon(FontAwesomeIcons.file),
-        Icon(FontAwesomeIcons.userGraduate),
-        Icon(Icons.phone)
+        const Icon(Icons.menu),
+        const Icon(Icons.home),
+        const Icon(FontAwesomeIcons.file),
+        const Icon(FontAwesomeIcons.userGraduate),
+        const Icon(Icons.phone)
       ],
     );
   }

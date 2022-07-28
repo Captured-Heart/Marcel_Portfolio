@@ -23,7 +23,7 @@ class DesktopFooterWidget extends StatelessWidget {
         top: size.height * 0.1,
       ),
       alignment: Alignment.center,
-      child: Text(
+      child: const Text(
           '2022, All Rights Reserved. "UMUNTU NGUMUNTU NGABANTU"'),
     );
   }

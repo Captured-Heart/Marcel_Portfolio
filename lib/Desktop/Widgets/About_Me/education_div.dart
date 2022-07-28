@@ -102,8 +102,8 @@ class EducationOptions extends StatelessWidget {
             width: size.width * 0.2,
             child: ListTile(
               contentPadding: EdgeInsets.zero,
-              title: Padding(
-                padding: const EdgeInsets.symmetric(
+              title: const Padding(
+                padding:  EdgeInsets.symmetric(
                   vertical: 30.0,
                 ),
                 child: Text(
@@ -116,8 +116,8 @@ class EducationOptions extends StatelessWidget {
               ),
               subtitle: Row(
                 children: [
-                  SizedBox(
-                    child: Text(
+                  const SizedBox(
+                    child:  Text(
                       'Student',
                       style: TextStyle(
                         fontWeight: FontWeight.w600,
@@ -126,9 +126,9 @@ class EducationOptions extends StatelessWidget {
                     width: 60,
                   ),
                   Container(
-                    padding: EdgeInsets.all(5),
+                    padding: const EdgeInsets.all(5),
                     color: Colors.orange[400],
-                    child: Text('June 2020 - August 2022'),
+                    child: const Text('June 2020 - August 2022'),
                   ),
                 ],
               ),
@@ -136,13 +136,13 @@ class EducationOptions extends StatelessWidget {
           ),
           Expanded(
             child: ListTile(
-              title: Padding(
-                padding: const EdgeInsets.symmetric(
+              title: const Padding(
+                padding: EdgeInsets.symmetric(
                   vertical: 30.0,
                 ),
-                child: Text(
+                child:  Text(
                   'Certificate of web training',
-                  style: TextStyle(
+                  style:  TextStyle(
                     fontWeight: FontWeight.bold,
                     fontSize: 20,
                   ),

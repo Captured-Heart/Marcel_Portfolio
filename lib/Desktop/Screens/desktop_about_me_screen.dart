@@ -17,7 +17,7 @@ final ScrollController scrollController = ScrollController();
     return ListView(
       shrinkWrap: true,
       controller: scrollController,
-      padding: EdgeInsets.symmetric(horizontal: 20, vertical: size.height * 0.08),
+      padding: EdgeInsets.symmetric(horizontal: 30, vertical: size.height * 0.08),
       children: [
         CenterTitleWidget(
           size: size * 1.2,

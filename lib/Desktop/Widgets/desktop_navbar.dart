@@ -31,10 +31,10 @@ class _DesktopNavBarState extends State<DesktopNavBar> {
     return Container(
       height: widget.size.height * 0.08,
       padding: EdgeInsets.symmetric(horizontal: widget.size.width * 0.06),
-      decoration: BoxDecoration(
+      decoration: const BoxDecoration(
         color: Colors.white,
         border: Border(
-            bottom: BorderSide(
+            bottom:  BorderSide(
           color: Colors.grey,
           width: 1.4,
         )),
@@ -43,16 +43,15 @@ class _DesktopNavBarState extends State<DesktopNavBar> {
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
           Row(
-            // ignore: prefer_const_literals_to_create_immutables
-            children: [
-              Text(
+            children:const [
+               Text(
                 'C-H ',
-                style: TextStyle(
+                style:  TextStyle(
                   fontSize: 22,
                   fontWeight: FontWeight.bold,
                 ),
               ),
-              Icon(
+               Icon(
                 FontAwesomeIcons.solidHeart,
                 color: Colors.purple,
               )

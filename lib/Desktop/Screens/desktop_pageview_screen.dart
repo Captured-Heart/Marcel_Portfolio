@@ -6,7 +6,7 @@ import 'package:my_portfolio/Desktop/Screens/portfolio_screen.dart';
 import 'package:my_portfolio/Desktop/Widgets/desktop_navbar.dart';
 import 'package:my_portfolio/Provider/page_controller_provider.dart';
 import 'package:my_portfolio/Utils/responsive.dart';
-import 'Home_Screen/desktop_home_screen.dart';
+import 'desktop_home_screen.dart';
 import 'desktop_about_me_screen.dart';
 import 'desktop_contact_us_screen.dart';
 

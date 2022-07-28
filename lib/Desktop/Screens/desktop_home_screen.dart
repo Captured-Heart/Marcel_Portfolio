@@ -18,7 +18,7 @@ class DesktopHomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Neumorphic(
-      margin: const EdgeInsets.all(20),
+      margin: const EdgeInsets.symmetric(horizontal: 30, vertical: 20),
       style: NeumorphicStyle(
         shape: NeumorphicShape.concave,
         boxShape: NeumorphicBoxShape.roundRect(

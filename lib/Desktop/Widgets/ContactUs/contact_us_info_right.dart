@@ -30,7 +30,7 @@ class ContactUsInfoRight extends StatelessWidget {
           children: [
             AnimatedPadding(
               padding: padding,
-              duration: Duration(milliseconds: 1200),
+              duration: const Duration(milliseconds: 1200),
               child: Row(
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
@@ -43,7 +43,7 @@ class ContactUsInfoRight extends StatelessWidget {
                       color: Colors.black,
                     ),
                   ),
-                  SizedBox(width: 15),
+                  const SizedBox(width: 15),
                   Expanded(
                     child: AutoSizeText(
                       'Roar Hub, University of Nigeria, Nsukka',
@@ -56,7 +56,7 @@ class ContactUsInfoRight extends StatelessWidget {
             SizedBox(height: size.height * 0.045),
             AnimatedPadding(
               padding: padding,
-              duration: Duration(milliseconds: 1600),
+              duration: const Duration(milliseconds: 1600),
               child: ContactInfoListTile(
                 size: size,
                 text: 'knkpozi@gmail.com',
@@ -67,7 +67,7 @@ class ContactUsInfoRight extends StatelessWidget {
             SizedBox(height: size.height * 0.045),
             AnimatedPadding(
               padding: padding,
-              duration: Duration(milliseconds: 2000),
+              duration: const Duration(milliseconds: 2000),
               child: ContactInfoListTile(
                 size: size,
                 icon: Icons.phone,
@@ -115,7 +115,7 @@ class ContactInfoListTile extends StatelessWidget {
             color: Colors.black,
           ),
         ),
-        SizedBox(width: 15),
+        const SizedBox(width: 15),
         Expanded(
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
@@ -124,7 +124,7 @@ class ContactInfoListTile extends StatelessWidget {
                 text,
                 style: textStyle(context),
               ),
-              SizedBox(height: 6),
+              const SizedBox(height: 6),
               Text(
                 text2,
                 style: textStyle(context),

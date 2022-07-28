@@ -1,7 +1,6 @@
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter_neumorphic/flutter_neumorphic.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:my_portfolio/Utils/responsive.dart';
 import 'package:my_portfolio/Utils/url_launcher.dart';
 
 class MyServicesGrid extends StatelessWidget {
@@ -53,7 +52,7 @@ class MyServicesGrid extends StatelessWidget {
         // color: Colors.white,
         child: Column(
           children: [
-            Text(
+            AutoSizeText(
               title,
               style: const TextStyle(
                 fontWeight: FontWeight.bold,
@@ -61,6 +60,8 @@ class MyServicesGrid extends StatelessWidget {
                 color: Colors.black,
               ),
               textAlign: TextAlign.start,
+              maxFontSize: 25,
+              maxLines: 1,
             ),
             // SizedBox(height: 5),
 
@@ -69,8 +70,8 @@ class MyServicesGrid extends StatelessWidget {
               child: Image.asset(
                 imgUrl,
                 fit: BoxFit.cover,
-                // width: size.width,
-                // height: size.height,
+                width: size.width,
+                height: size.height,
               ),
             ),
             SizedBox(

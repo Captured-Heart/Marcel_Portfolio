@@ -14,19 +14,19 @@ class IstDivMobile extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: EdgeInsets.symmetric(vertical: 15),
+      margin: const EdgeInsets.symmetric(vertical: 15),
       // height: size.height,
       width: size.width,
       child: Neumorphic(
-        padding: EdgeInsets.symmetric(vertical: 20),
+        padding: const EdgeInsets.symmetric(vertical: 20),
         style: NeumorphicStyle(
           shape: NeumorphicShape.concave,
           boxShape: NeumorphicBoxShape.roundRect(
-            BorderRadius.only(
-              bottomLeft: Radius.circular(10),
+            const BorderRadius.only(
+              bottomLeft:  Radius.circular(10),
               bottomRight: Radius.circular(10),
-              topLeft: Radius.circular(10),
-              topRight: Radius.circular(10),
+              topLeft:  Radius.circular(10),
+              topRight:  Radius.circular(10),
             ),
           ),
           depth: 1,
@@ -48,32 +48,32 @@ class IstDivMobile extends StatelessWidget {
                   scale: 0.5,
                 ),
               ),
-              SizedBox(height: 20),
+              const SizedBox(height: 20),
               AutoSizeText(
                 'Nkpozi Marcel Kelechi',
                 maxLines: 1,
                 style: GoogleFonts.oleoScript(
                     fontWeight: FontWeight.bold, fontSize: size.width * 0.07),
               ),
-              SizedBox(height: 5),
-              AutoSizeText(
+              const SizedBox(height: 5),
+              const AutoSizeText(
                 'Full Stack Flutter Developer',
-                style: TextStyle(
+                style:  TextStyle(
                     fontSize: 20,
                     fontWeight: FontWeight.w300,
                     decoration: TextDecoration.underline),
               ),
-              SizedBox(height: 20),
-              Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 15.0),
-                child: Text(
+              const SizedBox(height: 20),
+              const Padding(
+                padding: EdgeInsets.symmetric(horizontal: 15.0),
+                child:  Text(
                   'A flutter developer with front end development skills. I developed the passion and enduring enthusiasm for technology especially programming during my course of formal education. I am passionate about leveraging my diverse backgrounds to decipher challenging problems and create delightful experiences. ',
-                  style: TextStyle(
+                  style:  TextStyle(
                     fontSize: 16,
                   ),
                 ),
               ),
-              SizedBox(height: 20),
+              const SizedBox(height: 20),
               TextButton(
                 onPressed: () {
                   urlLauncher.launchSocialMediaUrls(
@@ -116,7 +116,7 @@ class IstDivMobile extends StatelessWidget {
                       fontWeight: FontWeight.bold,
                     ))),
               ),
-              SizedBox(height: 10),
+              const SizedBox(height: 10),
             ]),
       ),
     );

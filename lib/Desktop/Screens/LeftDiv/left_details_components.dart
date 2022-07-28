@@ -15,7 +15,7 @@ class LeftDivDetailsComponents extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
         Container(
-          padding: EdgeInsets.all(5),
+          padding: const EdgeInsets.all(5),
           color: Colors.orange[400],
           child: Text(leading),
         ),

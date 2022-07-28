@@ -18,7 +18,7 @@ class Dialogs {
       }),
       animationType: dialog.DialogTransitionType.slideFromLeft,
       curve: Curves.fastOutSlowIn,
-      duration: Duration(seconds: 1),
+      duration: const Duration(seconds: 1),
     );
   }
 
@@ -27,7 +27,7 @@ class Dialogs {
       context: context!,
       barrierDismissible: true,
       builder: ((context1) {
-        return dialog.CustomDialog(
+        return const dialog.CustomDialog(
           // titleText: titleText,
           // contentText: contentText,
           backgroundColor: Colors.black45,
@@ -40,7 +40,7 @@ class Dialogs {
       }),
       animationType: dialog.DialogTransitionType.slideFromLeft,
       curve: Curves.fastOutSlowIn,
-      duration: Duration(seconds: 1),
+      duration: const Duration(seconds: 1),
     );
   }
 }

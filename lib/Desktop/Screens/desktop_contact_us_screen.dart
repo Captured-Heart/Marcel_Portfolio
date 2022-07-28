@@ -1,4 +1,3 @@
-import 'package:animated_widgets/generated/i18n.dart';
 import 'package:flutter/material.dart';
 import 'package:my_portfolio/Desktop/Widgets/ContactUs/contact_us_info_left.dart';
 import 'package:my_portfolio/Desktop/Widgets/ContactUs/contact_us_info_right.dart';

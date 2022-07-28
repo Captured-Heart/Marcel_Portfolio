@@ -31,7 +31,7 @@ class CenterTitleMobile extends StatelessWidget {
                   color: Colors.orange[400],
                 ),
               ),
-              SizedBox(width: 5),
+              const SizedBox(width: 5),
               SizedBox(
                 width: size.width * 0.1,
                 child: Divider(
@@ -42,7 +42,7 @@ class CenterTitleMobile extends StatelessWidget {
               )
             ],
           ),
-          SizedBox(
+          const SizedBox(
             height: 10,
           ),
           DefaultTextStyle(
@@ -68,16 +68,16 @@ class CenterTitleMobile extends StatelessWidget {
               TypewriterAnimatedText(
                 centerTitle!,
                 cursor: '',
-                speed: Duration(milliseconds: 45),
+                speed: const Duration(milliseconds: 45),
               ),
             ]),
           ),
-          SizedBox(
+          const SizedBox(
             height: 10,
           ),
           Text(
             subtitle!,
-            style: TextStyle(
+            style: const TextStyle(
               fontWeight: FontWeight.w300,
               fontSize: 17,
             ),
