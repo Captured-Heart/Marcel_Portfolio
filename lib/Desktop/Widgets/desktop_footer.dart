@@ -12,7 +12,7 @@ class DesktopFooterWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       height: size.height * 0.08,
-      width: size.width,
+      // width: size.width,
       decoration: const BoxDecoration(
           color: Colors.white,
           borderRadius: BorderRadius.only(

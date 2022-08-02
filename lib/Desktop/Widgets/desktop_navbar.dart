@@ -1,8 +1,14 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:my_portfolio/Provider/page_controller_provider.dart';
 import 'package:my_portfolio/Utils/responsive.dart';
 
-class DesktopNavBar extends StatefulWidget {
+final pageIndexProvider = StateProvider<int>((ref) {
+  return 0;
+});
+
+class DesktopNavBar extends ConsumerStatefulWidget {
   const DesktopNavBar({
     Key? key,
     required this.size,
@@ -15,10 +21,10 @@ class DesktopNavBar extends StatefulWidget {
   final Size size;
   final VoidCallback onTapAbout, onTapHome, onTapPortfolio, onTopContact;
   @override
-  State<DesktopNavBar> createState() => _DesktopNavBarState();
+  _DesktopNavBarState createState() => _DesktopNavBarState();
 }
 
-class _DesktopNavBarState extends State<DesktopNavBar> {
+class _DesktopNavBarState extends ConsumerState<DesktopNavBar> {
   final List _hover = [
     false,
     false,
@@ -28,13 +34,15 @@ class _DesktopNavBarState extends State<DesktopNavBar> {
 
   @override
   Widget build(BuildContext context) {
+    // final pageIndex = ref.watch(pageIndexProvider);
+    final pageIndex = ref.watch(pageIndexProvider);
     return Container(
       height: widget.size.height * 0.08,
       padding: EdgeInsets.symmetric(horizontal: widget.size.width * 0.06),
       decoration: const BoxDecoration(
         color: Colors.white,
         border: Border(
-            bottom:  BorderSide(
+            bottom: BorderSide(
           color: Colors.grey,
           width: 1.4,
         )),
@@ -43,15 +51,15 @@ class _DesktopNavBarState extends State<DesktopNavBar> {
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
           Row(
-            children:const [
-               Text(
+            children: const [
+              Text(
                 'C-H ',
-                style:  TextStyle(
+                style: TextStyle(
                   fontSize: 22,
                   fontWeight: FontWeight.bold,
                 ),
               ),
-               Icon(
+              Icon(
                 FontAwesomeIcons.solidHeart,
                 color: Colors.purple,
               )
@@ -72,9 +80,23 @@ class _DesktopNavBarState extends State<DesktopNavBar> {
                       value ? _hover[0] = true : _hover[0] = false;
                     });
                   }),
-                  child: Text(
-                    'Home',
-                    style: textStyle(_hover, 0),
+                  child: Column(
+                    mainAxisSize: MainAxisSize.min,
+                    // mainAxisAlignment: MainAxisAlignment.end,
+                    children: [
+                      Text(
+                        'Home',
+                        style: textStyle(_hover, 0, pageIndex),
+                      ),
+                   (_hover[0] || pageIndex == 0) ?SizedBox(
+                        width: 50,
+                        child: Divider(
+                          color: Colors.orange[400],
+                          height: 4.5,
+                          thickness: 3,
+                        ),
+                      ) : const SizedBox()
+                    ],
                   ),
                 ),
 
@@ -86,9 +108,22 @@ class _DesktopNavBarState extends State<DesktopNavBar> {
                       value ? _hover[1] = true : _hover[1] = false;
                     });
                   }),
-                  child: Text(
-                    'Portfolio',
-                    style: textStyle(_hover, 1),
+                  child: Column(
+                    mainAxisSize: MainAxisSize.min,
+                    children: [
+                      Text(
+                        'Portfolio',
+                        style: textStyle(_hover, 1, pageIndex),
+                      ),
+                    (_hover[1] || pageIndex == 1) ?  SizedBox(
+                        width: 55,
+                        child: Divider(
+                          color: Colors.orange[400],
+                          height: 4.5,
+                          thickness: 3,
+                        ),
+                      ) : const SizedBox()
+                    ],
                   ),
                 ),
 
@@ -100,9 +135,22 @@ class _DesktopNavBarState extends State<DesktopNavBar> {
                         value ? _hover[2] = true : _hover[2] = false;
                       });
                     }),
-                    child: Text(
-                      'About Me',
-                      style: textStyle(_hover, 2),
+                    child: Column(
+                      mainAxisSize: MainAxisSize.min,
+                      children: [
+                        Text(
+                          'About Me',
+                          style: textStyle(_hover, 2, pageIndex),
+                        ),
+                   (_hover[2] || pageIndex == 2) ?     SizedBox(
+                          width: 60,
+                          child: Divider(
+                            color: Colors.orange[400],
+                            height: 4.5,
+                            thickness: 3,
+                          ),
+                        ) : const SizedBox()
+                      ],
                     )),
 
                 //!CONTACT ME
@@ -113,9 +161,22 @@ class _DesktopNavBarState extends State<DesktopNavBar> {
                         value ? _hover[3] = true : _hover[3] = false;
                       });
                     }),
-                    child: Text(
-                      'Contact Me',
-                      style: textStyle(_hover, 3),
+                    child: Column(
+                      mainAxisSize: MainAxisSize.min,
+                      children: [
+                        Text(
+                          'Contact Me',
+                          style: textStyle(_hover, 3, pageIndex),
+                        ),
+                     (_hover[3] || pageIndex == 3) ?  SizedBox(
+                          width: 80,
+                          child: Divider(
+                            color: Colors.orange[400],
+                            height: 4.5,
+                            thickness: 3,
+                          ),
+                        ) : const SizedBox()
+                      ],
                     )),
               ],
             ),
@@ -126,10 +187,12 @@ class _DesktopNavBarState extends State<DesktopNavBar> {
   }
 }
 
-TextStyle textStyle(dynamic _hover, int index) {
+TextStyle textStyle(dynamic _hover, int index, int pageIndex) {
   return TextStyle(
     fontWeight: FontWeight.bold,
-    fontSize: !_hover[index] ? 18 : 20,
-    color: !_hover[index] ? Colors.black : Colors.orange[400],
+    fontSize: (!_hover[index] && pageIndex != index) ? 18 : 20,
+    color: (!_hover[index] && pageIndex != index)
+        ? Colors.black
+        : Colors.orange[400],
   );
 }

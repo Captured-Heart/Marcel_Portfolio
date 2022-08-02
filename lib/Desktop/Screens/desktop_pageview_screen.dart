@@ -106,8 +106,10 @@ class DesktopPageViewScreen extends ConsumerWidget {
                 flex: 10,
                 child: PageView(
                   controller: pageController,
+                  onPageChanged: (index) {
+                    ref.read(pageIndexProvider.state).update((state) => index);
+                  },
                   children: [
-
                     //! HOME SCREEN
                     DesktopHomeScreen(
                       size: size,

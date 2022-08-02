@@ -4,10 +4,15 @@ class SocialButtons extends StatelessWidget {
   const SocialButtons({
     Key? key,
     required this.icons,
+    this.iconSize,
+    this.iconColor,
+    this.containerColor,
     required this.onTap,
   }) : super(key: key);
   final IconData icons;
   final VoidCallback onTap;
+  final Color ? containerColor, iconColor;
+  final double ? iconSize;
   @override
   Widget build(BuildContext context) {
     return InkWell(
@@ -18,12 +23,13 @@ class SocialButtons extends StatelessWidget {
         alignment: Alignment.center,
         padding: const EdgeInsets.all(8),
         decoration: BoxDecoration(
-          color: Colors.orange[400],
+          color: containerColor ?? Colors.orange[400],
           shape: BoxShape.circle,
         ),
         child: Icon(
           icons,
-          size: 20,
+          size: iconSize ?? 20,
+          color: iconColor ?? Colors.black,
         ),
       ),
     );

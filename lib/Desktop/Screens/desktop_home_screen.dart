@@ -1,8 +1,11 @@
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter_neumorphic/flutter_neumorphic.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:my_portfolio/Utils/responsive.dart';
 import 'package:my_portfolio/Utils/url_launcher.dart';
+
+import 'LeftDiv/social_buttons.dart';
 
 class DesktopHomeScreen extends StatelessWidget {
   DesktopHomeScreen({
@@ -39,7 +42,7 @@ class DesktopHomeScreen extends StatelessWidget {
             ? size.height * 0.7
             : size.height * 0.5,
         child: Row(
-          crossAxisAlignment: CrossAxisAlignment.center,
+          // crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Expanded(
               flex: 1,
@@ -49,10 +52,10 @@ class DesktopHomeScreen extends StatelessWidget {
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   crossAxisAlignment: CrossAxisAlignment.start,
-                  // ignore: prefer_const_literals_to_create_immutables
                   children: [
                     Column(
                       crossAxisAlignment: CrossAxisAlignment.center,
+                      mainAxisAlignment: MainAxisAlignment.end,
                       children: [
                         SizedBox(
                           width: size.width / 2,
@@ -70,7 +73,7 @@ class DesktopHomeScreen extends StatelessWidget {
                         const SizedBox(height: 10),
                         const AutoSizeText(
                           'Full Stack Flutter Developer ',
-                          style:  TextStyle(
+                          style: TextStyle(
                             fontSize: 25,
                             fontWeight: FontWeight.w300,
                             decoration: TextDecoration.underline,
@@ -99,8 +102,8 @@ class DesktopHomeScreen extends StatelessWidget {
                       },
                       child: Container(
                         margin: EdgeInsets.only(right: size.width * 0.08),
-                        padding:
-                            const EdgeInsets.symmetric(horizontal: 15, vertical: 8),
+                        padding: const EdgeInsets.symmetric(
+                            horizontal: 15, vertical: 8),
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                           // ignore: prefer_const_literals_to_create_immutables
@@ -127,22 +130,121 @@ class DesktopHomeScreen extends StatelessWidget {
                         decoration: BoxDecoration(color: Colors.orange[400]),
                       ),
                     ),
+                    Padding(
+                      padding:
+                          EdgeInsets.symmetric(vertical: size.height * 0.03),
+                      child: Row(
+                        mainAxisSize: MainAxisSize.min,
+                        children: [
+                          SocialButtons(
+                            icons: FontAwesomeIcons.facebookF,
+                            containerColor: Colors.transparent,
+                            iconSize: 40,
+                            iconColor: Colors.blue[700],
+                            onTap: () {
+                              urlLauncher.launchSocialMediaUrls(context,
+                                  url: Uri.parse(
+                                      'https://web.facebook.com/NkpoziMarcelKelechi/'));
+                            },
+                          ),
+                          const SizedBox(
+                            width: 15,
+                          ),
+                          SocialButtons(
+                            icons: FontAwesomeIcons.twitter,
+                            containerColor: Colors.transparent,
+                            iconSize: 40,
+                            iconColor: Colors.blue[300],
+                            onTap: () {
+                              urlLauncher.launchSocialMediaUrls(context,
+                                  url: Uri.parse(
+                                      'https://twitter.com/CapturedWarrior'));
+                            },
+                          ),
+                          const SizedBox(
+                            width: 15,
+                          ),
+                          SocialButtons(
+                            icons: FontAwesomeIcons.github,
+                            containerColor: Colors.transparent,
+                            iconSize: 40,
+                            onTap: () {
+                              urlLauncher.launchSocialMediaUrls(
+                                context,
+                                url: Uri.parse(
+                                    'https://github.com/Captured-Heart'),
+                              );
+                            },
+                          ),
+                          const SizedBox(
+                            width: 15,
+                          ),
+                          SocialButtons(
+                            icons: FontAwesomeIcons.linkedin,
+                            containerColor: Colors.transparent,
+                            iconSize: 40,
+                            iconColor: const Color(0xff0A66C2),
+                            onTap: () {
+                              urlLauncher.launchSocialMediaUrls(
+                                context,
+                                url: Uri.parse(
+                                    'https://www.linkedin.com/in/nkpozi-marcel-kelechi-213295172/'),
+                              );
+                            },
+                          ),
+                        ],
+                      ),
+                    ),
                   ],
                 ),
               ),
             ),
+
+            //!~ MY PICTURE COLUMN
             Expanded(
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.end,
-                crossAxisAlignment: CrossAxisAlignment.end,
+              child: Stack(
+                fit: StackFit.expand,
+                // mainAxisAlignment: MainAxisAlignment.end,
+                // crossAxisAlignment: CrossAxisAlignment.end,
                 //  fit: Responsive.isDesktop(context)
                 //         ? FlexFit.tight
                 //         : FlexFit.loose,
                 children: [
-                  Image.asset(
-                    'assets/images/myDp1.png',
-                    fit: BoxFit.fitHeight,
-                    width: size.width * 0.5,
+                  Positioned(
+                    top: 20,
+                    right: 20,
+                    child: Row(
+                      mainAxisSize: MainAxisSize.min,
+                      children: [
+                        Image.asset(
+                          'assets/images/flutter_logo.png',
+                          height: 20,
+                          width: 20,
+                        ),
+                        const SizedBox(
+                          width: 10,
+                        ),
+                        const Text(
+                          'Built with flutter!',
+                          maxLines: 1,
+                          style: TextStyle(
+                              fontWeight: FontWeight.w600,
+                              fontStyle: FontStyle.italic),
+                          textScaleFactor: 1.2,
+                        ),
+                      ],
+                    ),
+                  ),
+                  Positioned(
+                    bottom: 0,
+                    right: 0,
+                    left: 0,
+                    child: Image.asset(
+                      'assets/images/myDp1.png',
+                      fit: BoxFit.fill,
+                      width: size.width * 0.5,
+                      height: size.height * 0.8,
+                    ),
                   ),
                 ],
               ),

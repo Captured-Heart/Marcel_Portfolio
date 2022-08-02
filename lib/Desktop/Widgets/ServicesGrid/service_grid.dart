@@ -48,7 +48,9 @@ class MyServicesGrid extends StatelessWidget {
         // color: Colors.grey,
       ),
       child: SizedBox(
-        height: Responsive.isMobile(context)? size.height * 0.3 : size.height * 0.9,
+        height: Responsive.isMobile(context)
+            ? size.height * 0.3
+            : size.height * 0.9,
         width: size.width * 0.22,
         // color: Colors.white,
         child: Column(
@@ -87,7 +89,11 @@ class MyServicesGrid extends StatelessWidget {
               children: [
                 Padding(
                   padding: const EdgeInsets.only(top: 12.0),
-                  child: Text(content),
+                  child: AutoSizeText(
+                    content,
+                    maxLines: 10,
+                    overflow: TextOverflow.ellipsis,
+                  ),
                 ),
                 SizedBox(
                   width: size.width,
@@ -116,7 +122,7 @@ class MyServicesGrid extends StatelessWidget {
                       mainAxisAlignment: MainAxisAlignment.center,
                       mainAxisSize: MainAxisSize.min,
                       children: const [
-                         AutoSizeText(
+                        AutoSizeText(
                           'View Code',
                           maxLines: 1,
                           style: TextStyle(
@@ -126,8 +132,8 @@ class MyServicesGrid extends StatelessWidget {
                           // colors: colorizeColors,
                           // speed: Duration(milliseconds: 45),
                         ),
-                         SizedBox(width: 10),
-                         Icon(
+                        SizedBox(width: 10),
+                        Icon(
                           FontAwesomeIcons.github,
                           color: Colors.black,
                         )
